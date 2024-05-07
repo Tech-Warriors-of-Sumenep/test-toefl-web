@@ -36,7 +36,7 @@
           <div class="spinner"></div>
           <div class="text">
             <img class="mx-auto" src="/assets/images/spinner_logo.svg" alt="" />
-            <h4><span>Landpagy</span></h4>
+            <h4><span>Test Toefl</span></h4>
           </div>
         </div>
         <h2 class="head">Did You Know?</h2>
@@ -48,9 +48,9 @@
       <nav class="navbar navbar-expand-lg menu_three sticky-nav">
         <div class="container-fluid">
           <a class="navbar-brand header_logo" href="/">
-            <p class="">
-                Toefl Test
-            </p>
+            <h4 class="">
+                Test Toefl
+            </h4>
           </a>
           <button
             class="navbar-toggler collapsed"
@@ -77,79 +77,11 @@
             <ul class="navbar-nav menu mx-auto">
               <li class="nav-item dropdown submenu mega-home active">
                 <a href="index-2.html" class="nav-link dropdown-toggle active">Home</a>
-                <i class="arrow_carrot-right mobile_dropdown_icon" aria-hidden="false" data-bs-toggle="dropdown"></i>
-                <ul class="dropdown-menu">
-                  <li class="nav-item">
-                    <a href="index-2.html" class="nav-link">
-                      <img src="/assets/images/home_demos/project.png" alt="Demo" />
-                      <span>Project Management</span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="index-software.html" class="nav-link">
-                      <img src="/assets/images/home_demos/software.png" alt="Demo" />
-                      <span>Software Company</span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="index-software2.html" class="nav-link">
-                      <img src="/assets/images/home_demos/software-2.png" alt="Demo" />
-                      <span>Software Demo Landing</span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="index-payment.html" class="nav-link">
-                      <img src="/assets/images/home_demos/payment.png" alt="Demo" />
-                      <span>Payment Processing</span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="index-billing.html" class="nav-link">
-                      <img src="/assets/images/home_demos/billing.png" alt="Demo" />
-                      <span>Account Billing Software</span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="index-cloud.html" class="nav-link">
-                      <img src="/assets/images/home_demos/cloud.png" alt="Demo" />
-                      <span>Cloud Saas</span>
-                    </a>
-                  </li>
-                  <li class="nav-item active">
-                    <a href="index-app.html" class="nav-link">
-                      <img src="/assets/images/home_demos/app.png" alt="Demo" />
-                      <span>Mobile App Landing</span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="index-hrm.html" class="nav-link">
-                      <img src="/assets/images/home_demos/hrm.png" alt="Demo" />
-                      <span>HRM Software</span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="index-pos.html" class="nav-link">
-                      <img src="/assets/images/home_demos/pos.png" alt="Demo" />
-                      <span>POS Software</span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="index-proto.html" class="nav-link">
-                      <img src="/assets/images/home_demos/proto.png" alt="Demo" />
-                      <span>Prototype</span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="help-center.html" class="nav-link">
-                      <img src="/assets/images/home_demos/help.png" alt="Demo" />
-                      <span>Help Center</span>
-                    </a>
-                  </li>
-                </ul>
+                {{-- <i class="arrow_carrot-right mobile_dropdown_icon" aria-hidden="false" data-bs-toggle="dropdown"></i> --}}
               </li>
               <li class="nav-item dropdown submenu active">
                 <a href="#" class="nav-link dropdown-toggle">Pages</a>
-                <i class="arrow_carrot-right mobile_dropdown_icon" aria-hidden="false" data-bs-toggle="dropdown"></i>
+                {{-- <i class="arrow_carrot-right mobile_dropdown_icon" aria-hidden="false" data-bs-toggle="dropdown"></i> --}}
                 <ul class="dropdown-menu">
                   <li class="nav-item">
                     <a href="product.html" class="nav-link">Product</a>
@@ -162,7 +94,7 @@
                   </li>
                   <li class="nav-item dropdown submenu">
                     <a href="about.html" class="nav-link">About</a>
-                    <i class="arrow_carrot-right mobile_dropdown_icon" aria-hidden="false" data-bs-toggle="dropdown"></i>
+                    {{-- <i class="arrow_carrot-right mobile_dropdown_icon" aria-hidden="false" data-bs-toggle="dropdown"></i> --}}
                     <ul class="dropdown-menu">
                       <li class="nav-item">
                         <a href="about.html" class="nav-link">About One</a>
@@ -174,7 +106,7 @@
                   </li>
                   <li class="nav-item dropdown submenu">
                     <a href="contact.html" class="nav-link">Contact</a>
-                    <i class="arrow_carrot-right mobile_dropdown_icon" aria-hidden="false" data-bs-toggle="dropdown"></i>
+                    {{-- <i class="arrow_carrot-right mobile_dropdown_icon" aria-hidden="false" data-bs-toggle="dropdown"></i> --}}
                     <ul class="dropdown-menu">
                       <li class="nav-item">
                         <a href="contact.html" class="nav-link">Contact One</a>
@@ -186,7 +118,7 @@
                   </li>
                   <li class="nav-item dropdown submenu">
                     <a href="comming-soon.html" class="nav-link">Comming Soon</a>
-                    <i class="arrow_carrot-right mobile_dropdown_icon" aria-hidden="false" data-bs-toggle="dropdown"></i>
+                    {{-- <i class="arrow_carrot-right mobile_dropdown_icon" aria-hidden="false" data-bs-toggle="dropdown"></i> --}}
                     <ul class="dropdown-menu">
                       <li class="nav-item">
                         <a href="comming-soon.html" class="nav-link">Comming Soon One</a>
@@ -207,11 +139,11 @@
 
               <li class="nav-item dropdown submenu mega-menu active">
                 <a href="#" class="nav-link dropdown-toggle">Elements</a>
-                <i class="arrow_carrot-right mobile_dropdown_icon" aria-hidden="false" data-bs-toggle="dropdown"></i>
+                {{-- <i class="arrow_carrot-right mobile_dropdown_icon" aria-hidden="false" data-bs-toggle="dropdown"></i> --}}
                 <ul class="dropdown-menu container">
                   <li class="nav-item">
                     <a class="nav-link">Elements 01</a>
-                    <i class="arrow_carrot-right mobile_dropdown_icon" aria-hidden="false" data-bs-toggle="dropdown"></i>
+                    {{-- <i class="arrow_carrot-right mobile_dropdown_icon" aria-hidden="false" data-bs-toggle="dropdown"></i> --}}
                     <ul class="dropdown-menu">
                       <li class="nav-item"><a href="accordion.html" class="nav-link">Accordions</a></li>
                       <li class="nav-item"><a href="team.html" class="nav-link">Team</a></li>
@@ -221,7 +153,7 @@
                   </li>
                   <li class="nav-item">
                     <a class="nav-link">Elements 02</a>
-                    <i class="arrow_carrot-right mobile_dropdown_icon" aria-hidden="false" data-bs-toggle="dropdown"></i>
+                    {{-- <i class="arrow_carrot-right mobile_dropdown_icon" aria-hidden="false" data-bs-toggle="dropdown"></i> --}}
                     <ul class="dropdown-menu">
                       <li class="nav-item"><a href="testimonial.html" class="nav-link">Testimonials</a></li>
                       <li class="nav-item"><a href="video.html" class="nav-link">Video</a></li>
@@ -231,7 +163,7 @@
                   </li>
                   <li class="nav-item">
                     <a class="nav-link">Elements 03</a>
-                    <i class="arrow_carrot-right mobile_dropdown_icon" aria-hidden="false" data-bs-toggle="dropdown"></i>
+                    {{-- <i class="arrow_carrot-right mobile_dropdown_icon" aria-hidden="false" data-bs-toggle="dropdown"></i> --}}
                     <ul class="dropdown-menu">
                       <li class="nav-item"><a href="pricing.html" class="nav-link">Pricing Table</a></li>
                       <li class="nav-item"><a href="pricing-2.html" class="nav-link">Pricing Table 2</a></li>
@@ -241,7 +173,7 @@
                   </li>
                   <li class="nav-item">
                     <a class="nav-link"> Elements 04 </a>
-                    <i class="arrow_carrot-right mobile_dropdown_icon" aria-hidden="false" data-bs-toggle="dropdown"></i>
+                    {{-- <i class="arrow_carrot-right mobile_dropdown_icon" aria-hidden="false" data-bs-toggle="dropdown"></i> --}}
                     <ul class="dropdown-menu">
                       <li class="nav-item"><a href="stories.html" class="nav-link">Timeline Stories</a></li>
                       <li class="nav-item"><a href="get-app.html" class="nav-link">Get App</a></li>
@@ -251,7 +183,7 @@
                   </li>
                   <li class="nav-item">
                     <a class="nav-link"> Elements 05 </a>
-                    <i class="arrow_carrot-right mobile_dropdown_icon" aria-hidden="false" data-bs-toggle="dropdown"></i>
+                    {{-- <i class="arrow_carrot-right mobile_dropdown_icon" aria-hidden="false" data-bs-toggle="dropdown"></i> --}}
                     <ul class="dropdown-menu">
                       <li class="nav-item"><a href="fun-fact.html" class="nav-link">Fun Fact</a></li>
                       <li class="nav-item"><a href="faq.html" class="nav-link">FAQ's</a></li>
@@ -263,7 +195,7 @@
 
               <li class="nav-item dropdown submenu active">
                 <a href="career.html" class="nav-link dropdown-toggle">Jobs</a>
-                <i class="arrow_carrot-right mobile_dropdown_icon" aria-hidden="false" data-bs-toggle="dropdown"></i>
+                {{-- <i class="arrow_carrot-right mobile_dropdown_icon" aria-hidden="false" data-bs-toggle="dropdown"></i> --}}
                 <ul class="dropdown-menu">
                   <li class="nav-item">
                     <a href="career.html" class="nav-link">Career</a>
@@ -278,7 +210,7 @@
               </li>
               <li class="nav-item dropdown submenu active">
                 <a href="blog.html" class="nav-link dropdown-toggle">Blog</a>
-                <i class="arrow_carrot-right mobile_dropdown_icon" aria-hidden="false" data-bs-toggle="dropdown"></i>
+                {{-- <i class="arrow_carrot-right mobile_dropdown_icon" aria-hidden="false" data-bs-toggle="dropdown"></i> --}}
                 <ul class="dropdown-menu">
                   <li class="nav-item">
                     <a href="blog.html" class="nav-link">Blog</a>
