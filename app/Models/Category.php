@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Category extends Model
 {
@@ -14,14 +14,14 @@ class Category extends Model
         'id'
     ];
 
-    // One To Many
-    public function materi(): HasMany {
-        return $this->hasMany(Materi::class);
+    // One To One
+    public function materi(): HasOne {
+        return $this->hasOne(Materi::class);
     }
 
-    // One To Many
-    public function ujian(): HasMany {
-        return $this->hasMany(Ujian::class);
+    // One To One
+    public function ujian(): HasOne {
+        return $this->hasOne(Ujian::class);
     }
 
 }
