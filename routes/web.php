@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UjianController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +24,10 @@ Route::middleware('guest')->group(function() {
 
 Route::middleware('auth')->group(function() {
     Route::get('/dashboard', [HomeController::class, 'dashboard']);
+
+    Route::controller(UjianController::class)->group(function() {
+        Route::get('/ujian', 'index');
+    });
 });
 
 Route::post('/log', [AuthController::class, 'auth'])->name('auth');

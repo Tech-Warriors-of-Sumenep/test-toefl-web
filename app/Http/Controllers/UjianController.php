@@ -11,7 +11,7 @@ class UjianController extends Controller
      */
     public function index()
     {
-        //
+        return view('ujian.home');
     }
 
     /**
