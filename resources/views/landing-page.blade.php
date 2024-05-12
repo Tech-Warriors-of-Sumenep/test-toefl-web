@@ -82,152 +82,24 @@
               <li class="nav-item dropdown submenu active">
                 <a href="#" class="nav-link dropdown-toggle">Pages</a>
                 {{-- <i class="arrow_carrot-right mobile_dropdown_icon" aria-hidden="false" data-bs-toggle="dropdown"></i> --}}
-                <ul class="dropdown-menu">
-                  <li class="nav-item">
-                    <a href="product.html" class="nav-link">Product</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="services.html" class="nav-link">Services</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="404.html" class="nav-link">404</a>
-                  </li>
-                  <li class="nav-item dropdown submenu">
-                    <a href="about.html" class="nav-link">About</a>
-                    {{-- <i class="arrow_carrot-right mobile_dropdown_icon" aria-hidden="false" data-bs-toggle="dropdown"></i> --}}
-                    <ul class="dropdown-menu">
-                      <li class="nav-item">
-                        <a href="about.html" class="nav-link">About One</a>
-                      </li>
-                      <li class="nav-item">
-                        <a href="about-2.html" class="nav-link">About Two</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="nav-item dropdown submenu">
-                    <a href="contact.html" class="nav-link">Contact</a>
-                    {{-- <i class="arrow_carrot-right mobile_dropdown_icon" aria-hidden="false" data-bs-toggle="dropdown"></i> --}}
-                    <ul class="dropdown-menu">
-                      <li class="nav-item">
-                        <a href="contact.html" class="nav-link">Contact One</a>
-                      </li>
-                      <li class="nav-item">
-                        <a href="contact-2.html" class="nav-link">Contact Two</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="nav-item dropdown submenu">
-                    <a href="comming-soon.html" class="nav-link">Comming Soon</a>
-                    {{-- <i class="arrow_carrot-right mobile_dropdown_icon" aria-hidden="false" data-bs-toggle="dropdown"></i> --}}
-                    <ul class="dropdown-menu">
-                      <li class="nav-item">
-                        <a href="comming-soon.html" class="nav-link">Comming Soon One</a>
-                      </li>
-                      <li class="nav-item">
-                        <a href="comming-soon-2.html" class="nav-link">Comming Soon Two</a>
-                      </li>
-                      <li class="nav-item">
-                        <a href="comming-soon-3.html" class="nav-link">Comming Soon Three</a>
-                      </li>
-                      <li class="nav-item">
-                        <a href="comming-soon-4.html" class="nav-link">Comming Soon Four</a>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
               </li>
 
               <li class="nav-item dropdown submenu mega-menu active">
                 <a href="#" class="nav-link dropdown-toggle">Elements</a>
                 {{-- <i class="arrow_carrot-right mobile_dropdown_icon" aria-hidden="false" data-bs-toggle="dropdown"></i> --}}
-                <ul class="dropdown-menu container">
-                  <li class="nav-item">
-                    <a class="nav-link">Elements 01</a>
-                    {{-- <i class="arrow_carrot-right mobile_dropdown_icon" aria-hidden="false" data-bs-toggle="dropdown"></i> --}}
-                    <ul class="dropdown-menu">
-                      <li class="nav-item"><a href="accordion.html" class="nav-link">Accordions</a></li>
-                      <li class="nav-item"><a href="team.html" class="nav-link">Team</a></li>
-                      <li class="nav-item"><a href="integration.html" class="nav-link">Integration</a></li>
-                      <li class="nav-item"><a href="client.html" class="nav-link">Clients</a></li>
-                    </ul>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link">Elements 02</a>
-                    {{-- <i class="arrow_carrot-right mobile_dropdown_icon" aria-hidden="false" data-bs-toggle="dropdown"></i> --}}
-                    <ul class="dropdown-menu">
-                      <li class="nav-item"><a href="testimonial.html" class="nav-link">Testimonials</a></li>
-                      <li class="nav-item"><a href="video.html" class="nav-link">Video</a></li>
-                      <li class="nav-item"><a href="contact.html" class="nav-link">Contact Form</a></li>
-                      <li class="nav-item"><a href="process.html" class="nav-link">Process</a></li>
-                    </ul>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link">Elements 03</a>
-                    {{-- <i class="arrow_carrot-right mobile_dropdown_icon" aria-hidden="false" data-bs-toggle="dropdown"></i> --}}
-                    <ul class="dropdown-menu">
-                      <li class="nav-item"><a href="pricing.html" class="nav-link">Pricing Table</a></li>
-                      <li class="nav-item"><a href="pricing-2.html" class="nav-link">Pricing Table 2</a></li>
-                      <li class="nav-item"><a href="subscribe.html" class="nav-link">subscribe</a></li>
-                      <li class="nav-item"><a href="tab.html" class="nav-link">tab</a></li>
-                    </ul>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link"> Elements 04 </a>
-                    {{-- <i class="arrow_carrot-right mobile_dropdown_icon" aria-hidden="false" data-bs-toggle="dropdown"></i> --}}
-                    <ul class="dropdown-menu">
-                      <li class="nav-item"><a href="stories.html" class="nav-link">Timeline Stories</a></li>
-                      <li class="nav-item"><a href="get-app.html" class="nav-link">Get App</a></li>
-                      <li class="nav-item"><a href="google-map.html" class="nav-link">Google Map</a></li>
-                      <li class="nav-item"><a href="comming-soon-4.html" class="nav-link">Countdown Timer</a></li>
-                    </ul>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link"> Elements 05 </a>
-                    {{-- <i class="arrow_carrot-right mobile_dropdown_icon" aria-hidden="false" data-bs-toggle="dropdown"></i> --}}
-                    <ul class="dropdown-menu">
-                      <li class="nav-item"><a href="fun-fact.html" class="nav-link">Fun Fact</a></li>
-                      <li class="nav-item"><a href="faq.html" class="nav-link">FAQ's</a></li>
-                      <li class="nav-item"><a href="features.html" class="nav-link">Features</a></li>
-                    </ul>
-                  </li>
-                </ul>
               </li>
 
-              <li class="nav-item dropdown submenu active">
-                <a href="career.html" class="nav-link dropdown-toggle">Jobs</a>
+              <li class="nav-item active">
+                <a href="career.html" class="nav-link">Jobs</a>
                 {{-- <i class="arrow_carrot-right mobile_dropdown_icon" aria-hidden="false" data-bs-toggle="dropdown"></i> --}}
-                <ul class="dropdown-menu">
-                  <li class="nav-item">
-                    <a href="career.html" class="nav-link">Career</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="job-post.html" class="nav-link">Jobs</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="job-application.html" class="nav-link">Job Application</a>
-                  </li>
-                </ul>
               </li>
-              <li class="nav-item dropdown submenu active">
-                <a href="blog.html" class="nav-link dropdown-toggle">Blog</a>
+              <li class="nav-item active">
+                <a href="blog.html" class="nav-link">Blog</a>
                 {{-- <i class="arrow_carrot-right mobile_dropdown_icon" aria-hidden="false" data-bs-toggle="dropdown"></i> --}}
-                <ul class="dropdown-menu">
-                  <li class="nav-item">
-                    <a href="blog.html" class="nav-link">Blog</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="blog-single.html" class="nav-link">Blog Single</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="blog-grid.html" class="nav-link">Extended Grid</a>
-                  </li>
-                </ul>
               </li>
             </ul>
             <div class="right-nav">
-              <a href="#" class="language-bar mr-50"><span class="active">En.</span> <span>Ru</span></a>
-              <a href="signin.html">Sign in</a>
-              <a class="btn btn-red" href="signup.html">Sign Up</a>
+              <a class="btn btn-red" href="/login">Sign in</a>
             </div>
           </div>
         </div>
