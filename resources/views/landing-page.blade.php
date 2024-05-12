@@ -277,7 +277,7 @@
             <div class="col-md-7">
               <div class="app-banner-content wow fadeInLeft" data-wow-delay="0.3s">
                 <h1 class="banner-title mb-35">
-                  Welcome to Landpagy Get the
+                  Welcome to TestToefl Get the
                   <span>
                     App Now
                     <img class="border-shape" src="/assets/images/home_10/shapes/border.svg" alt="Border" />
