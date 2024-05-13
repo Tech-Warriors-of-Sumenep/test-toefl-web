@@ -26,7 +26,12 @@ Route::middleware('auth')->group(function() {
     Route::get('/dashboard', [HomeController::class, 'dashboard']);
 
     Route::controller(UjianController::class)->group(function() {
-        Route::get('/ujian', 'index');
+        Route::get('/ujian', 'index')->name('ujian.index');
+        Route::get('/ujian/create', 'create')->name('ujian.create');
+        Route::get('/ujian/{code}', 'edit')->name('ujian.edit');
+        Route::post('/ujian', 'store')->name('ujian.store');
+        Route::put('/ujian/{code}', 'update')->name('ujian.update');
+        Route::delete('/ujian/{code}', 'destroy')->name('ujian.destroy');
     });
 });
 
