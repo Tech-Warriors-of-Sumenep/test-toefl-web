@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('records', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('soalId')->constrained('soals')->onUpdate('cascade')->onDelete('cascade');
-            $table->foreignId('jawabanId')->constrained('jawabans')->onUpdate('cascade')->onDelete('cascade');
-            $table->foreignId('userId')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('soal_id')->constrained('soals')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('jawaban_id')->constrained('jawabans')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('soals', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('ujianId')->constrained('ujians')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('ujian_id')->constrained('ujians')->onUpdate('cascade')->onDelete('cascade');
             $table->text('soal');
             $table->string('file')->nullable();
             $table->timestamps();
