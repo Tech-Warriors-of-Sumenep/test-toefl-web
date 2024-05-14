@@ -14,6 +14,11 @@
                       <div class="mb-3">
                         <label class="form-label" for="title">Title</label>
                         <input type="text" name="title" class="form-control" id="title" placeholder="Ujian Hidup">
+                        @error('title')
+                          <div class="form-text text-danger"> 
+                            {{$message}}
+                          </div>
+                        @enderror
                       </div>
                       <div class="mb-3" data-select2-id="45">
                         <label for="select2Basic" class="form-label">Basic</label>
@@ -30,11 +35,21 @@
                                 </option>
                                 @endforeach
                             </select>
+                            @error('category')
+                              <div class="form-text text-danger"> 
+                                {{$message}}
+                              </div>
+                            @enderror
                     </div>
                       </div>
                       <div class="mb-3">
                         <label class="form-label" for="deskripsi">Deskripsi</label>
                         <textarea id="deskripsi" name="deskripsi" class="form-control" placeholder="Deskripsi"></textarea>
+                        @error('deskripsi')
+                          <div class="form-text text-danger"> 
+                            {{$message}}
+                          </div>
+                        @enderror
                       </div>
                       <button type="submit" class="btn btn-primary waves-effect waves-light">Submit</button>
                     </form>
