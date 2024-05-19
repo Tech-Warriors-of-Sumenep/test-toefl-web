@@ -37,6 +37,15 @@ Route::middleware('auth')->group(function() {
         Route::delete('/ujian/{code}', 'destroy')->name('ujian.destroy');
     });
 
+    Route::controller(ReadingController::class)->group(function() {
+        Route::get('/reading', 'index')->name('reading.index');
+        Route::get('/reading/create', 'create')->name('reading.create');
+        Route::get('/reading/{code}', 'edit')->name('reading.edit');
+        Route::post('/reading', 'store')->name('reading.store');
+        Route::put('/reading/{code}', 'update')->name('reading.update');
+        Route::delete('/reading/{code}', 'destroy')->name('reading.destroy');
+    });
+
     Route::controller(SoalController::class)->group(function() {
         Route::get('/soal', 'index')->name('soal.index');
         Route::get('/soal/create', 'create')->name('soal.create');
@@ -54,6 +63,7 @@ Route::middleware('auth')->group(function() {
          Route::put('/materiGrammar/{code}', 'update')->name('materiGrammar.update');
          Route::delete('/materiGrammar/{code}', 'destroy')->name('materiGrammar.destroy');
      });
+
     Route::controller(MateriReadingController::class)->group(function() {
         Route::get('/materiReading', 'index')->name('materiReading.index');
          Route::get('/materiReading/create', 'create')->name('materiReading.create');
