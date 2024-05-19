@@ -6,35 +6,28 @@ use App\Models\Category;
 use App\Models\Ujian;
 use Illuminate\Http\Request;
 
-class UjianController extends Controller
+class ReadingController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    private int $category = 2;
+    //
+        public function index()
     {
-        $ujian = Ujian::with(['category'])->get();
         $no = 1;
-        return view('ujian.index', compact([
+        $ujian = Ujian::with(['category'])->where('category_id', $this->category)->get();
+        return view('reading.index', compact([
             'ujian', 'no'
         ]));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+        public function create()
     {
         $categories = Category::all();
-        return view('ujian.create', compact([
+        return view('reading.create', compact([
             'categories'
         ]));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+       public function store(Request $request)
     {
         $this->validate($request, [
             'title' => 'required|min:8',
@@ -55,34 +48,20 @@ class UjianController extends Controller
             'category_id' => $request->category
         ]);
 
-        return redirect()->route('ujian.index')->with(['success' => 'Data Berhasil Disimpan!']);
+        return redirect()->route('ujian-reading.index')->with(['success' => 'Data Berhasil Disimpan!']);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $code)
+        public function edit(string $code)
     {
         $categories = Category::all();
         $ujian = Ujian::with(['category'])->where('uuid', $code)->first();
-        return view('ujian.edit', compact(
+        return view('reading.edit', compact(
             [
                 'categories', 'ujian'
             ]
         ));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $code)
     {
         $ujian = Ujian::with(['category'])->where('uuid', $code)->first();
@@ -105,18 +84,15 @@ class UjianController extends Controller
             'category_id' => $request->category
         ]);
 
-        return redirect()->route('ujian.index')->with(['success' => 'Data Berhasil Diupdate!']);
+        return redirect()->route('ujian-reading.index')->with(['success' => 'Data Berhasil Diupdate!']);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $code)
+        public function destroy(string $code)
     {
         $ujian = Ujian::with(['category'])->where('uuid', $code)->first();
         
         $ujian->delete();
 
-        return redirect()->route('ujian.index')->with(['success' => 'Data Berhasil Didelete!']);
+        return redirect()->route('ujian-reading.index')->with(['success' => 'Data Berhasil Didelete!']);
     }
 }

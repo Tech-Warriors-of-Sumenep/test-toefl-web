@@ -6,10 +6,10 @@
             <div class="col-xl">
                 <div class="card mb-4">
                   <div class="card-header d-flex justify-content-between align-items-center">
-                    <h5 class="mb-0">Edit Ujian</h5>
+                    <h5 class="mb-0">Edit Ujian Reading</h5>
                   </div>
                   <div class="card-body">
-                    <form action="{{ route('ujian.update', ['code'=> $ujian->uuid]) }}" method="POST">
+                    <form action="{{ route('ujian-reading.update', ['code'=> $ujian->uuid]) }}" method="POST">
                         @csrf
                         @method('PUT')
                       <div class="mb-3">

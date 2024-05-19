@@ -3,13 +3,13 @@
 @section('content')
 <div class="container-xxl flex-grow-1 container-p-y">         
     <h4 class="py-3 mb-4">
-        Ujian
+        Ujian Grammer
     </h4>
     <!-- Hoverable Table rows -->
     <div class="card">
         <div class="row g-0">
             <div class="col-lg-6 p-4">
-                <h5 class="card-header">Data Ujian</h5>
+                <h5 class="card-header">Data Ujian Grammer</h5>
             </div>
             <div class="col-lg-6 p-4" style="display: flex; height: auto; align-items: center; justify-content:end">
                 <a href="{{ route('ujian-grammar.create') }}" class="">

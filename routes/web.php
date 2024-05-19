@@ -6,6 +6,7 @@ use App\Http\Controllers\UjianController;
 use App\Http\Controllers\SoalController;
 use App\Http\Controllers\MateriGrammarController;
 use App\Http\Controllers\GrammerController;
+use App\Http\Controllers\ReadingController;
 use App\Http\Controllers\MateriReadingController;
 use Illuminate\Support\Facades\Route;
 
@@ -39,13 +40,13 @@ Route::middleware('auth')->group(function() {
     });
 
     Route::controller(ReadingController::class)->group(function() {
-        Route::get('/reading', 'index')->name('reading.index');
-        Route::get('/reading/create', 'create')->name('reading.create');
-        Route::get('/reading/{code}', 'edit')->name('reading.edit');
-        Route::post('/reading', 'store')->name('reading.store');
-        Route::put('/reading/{code}', 'update')->name('reading.update');
-        Route::delete('/reading/{code}', 'destroy')->name('reading.destroy');
-    });
+        Route::get('/ujian-reading', 'index')->name('ujian-reading.index');     
+         Route::get('/ujian-reading/create', 'create')->name('ujian-reading.create');
+         Route::get('/ujian-reading/{code}', 'edit')->name('ujian-reading.edit');
+         Route::post('/ujian-reading', 'store')->name('ujian-reading.store');
+         Route::put('/ujian-reading/{code}', 'update')->name('ujian-reading.update');
+         Route::delete('/ujian-reading/{code}', 'destroy')->name('ujian-reading.destroy');
+     });
 
     Route::controller(SoalController::class)->group(function() {
         Route::get('/soal', 'index')->name('soal.index');
@@ -73,6 +74,7 @@ Route::middleware('auth')->group(function() {
          Route::put('/materiReading/{code}', 'update')->name('materiReading.update');
          Route::delete('/materiReading/{code}', 'destroy')->name('materiReading.destroy');
      });
+
     Route::controller(GrammerController::class)->group(function() {
         Route::get('/ujian-grammar', 'index')->name('ujian-grammar.index');     
          Route::get('/ujian-grammar/create', 'create')->name('ujian-grammar.create');

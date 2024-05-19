@@ -6,10 +6,10 @@
             <div class="col-xl">
                 <div class="card mb-4">
                   <div class="card-header d-flex justify-content-between align-items-center">
-                    <h5 class="mb-0">Create Reading</h5>
+                    <h5 class="mb-0">Create Ujian Reading</h5>
                   </div>
                   <div class="card-body">
-                    <form action="{{ route('ujian.store') }}" method="POST">
+                    <form action="{{ route('ujian-reading.store') }}" method="POST">
                         @csrf
                       <div class="mb-3">
                         <label class="form-label" for="title">Title</label>
