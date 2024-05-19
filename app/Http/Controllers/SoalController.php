@@ -13,7 +13,7 @@ class SoalController extends Controller
      */
     public function index()
     {
-        $soals = Soal::with(['ujian'])->get(); // Mengambil semua data soal dengan informasi ujian terkait
+        $soals = Soal::with('ujian')->get(); // Mengambil semua data soal dengan informasi ujian terkait
         return view('soal.index', compact('soals')); // Mengirim data soal ke view
     }
 
@@ -34,25 +34,10 @@ class SoalController extends Controller
         $this->validate($request, [
             'ujian_id' => 'required',
             'soal' => 'required',
+            'file' => 'required',
         ]);
 
-
-        $file = $request->file('file');
-
-        if($file != null) {
-            $file->storeAs('file', $file->hashName());
-            Soal::create([
-                'ujian_id' => $request->ujian_id,
-                'soal' => $request->soal,
-                'file' => $file
-            ]); // Menyimpan data soal baru ke database
-        } else {
-            $file->storeAs('public/file', $file->hashName());
-            Soal::create([
-                'ujian_id' => $request->ujian_id,
-                'soal' => $request->soal,
-            ]);
-        }
+        Soal::create($request->all()); // Menyimpan data soal baru ke database
 
         return redirect()->route('soal.index')->with('success', 'Soal berhasil disimpan');
     }
