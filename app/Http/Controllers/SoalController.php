@@ -47,7 +47,6 @@ class SoalController extends Controller
                 'file' => $file
             ]); // Menyimpan data soal baru ke database
         } else {
-            $file->storeAs('public/file', $file->hashName());
             Soal::create([
                 'ujian_id' => $request->ujian_id,
                 'soal' => $request->soal,
