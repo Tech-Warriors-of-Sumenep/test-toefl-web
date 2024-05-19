@@ -116,5 +116,11 @@ class="layout-menu menu-vertical menu bg-menu-theme"
       <div data-i18n="Materi">materi</div>
     </a>
   </li>
+  <li class="menu-item">
+    <a href="/materiReading" class="menu-link">
+      <i class="menu-icon tf-icons ti ti-notes"></i>
+      <div data-i18n="Materi Reading">Materi Reading</div>
+    </a>
+  </li>
 </ul>
 </aside>
