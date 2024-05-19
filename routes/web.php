@@ -60,6 +60,7 @@ Route::middleware('auth')->group(function() {
          Route::get('/materiReading/{code}', 'edit')->name('materiReading.edit');
          Route::post('/materiReading', 'store')->name('materiReading.store');
          Route::put('/materiReading/{code}', 'update')->name('materiReading.update');
+         Route::delete('/materiReading/{code}', 'destroy')->name('materiReading.destroy');
      });
 });
 

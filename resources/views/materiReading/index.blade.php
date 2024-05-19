@@ -24,7 +24,6 @@
               <th>No.</th>
               <th>Title</th>
               <th>Description</th>
-              <th>File</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -39,9 +38,6 @@
               </td>
               <td>
                 {{ $materi1->description }}
-              </td>
-              <td>
-                {{ $materi1->file }}
               </td>
               <td>
                 <div class="dropdown">

@@ -19,10 +19,6 @@
                                 <label class="form-label" for="deskripsi">Description</label>
                                 <textarea name="deskripsi" class="form-control" id="deskripsi" placeholder="Description" rows="3"></textarea>
                             </div>
-                            <div class="mb-3">
-                                <label class="form-label" for="file">File</label>
-                                <input type="file" name="file" class="form-control" id="file">
-                            </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
                     </div>

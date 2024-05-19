@@ -20,10 +20,6 @@
                                 <label class="form-label" for="deskripsi">Deskripsi</label>
                                 <textarea id="deskripsi" name="deskripsi" class="form-control" placeholder="Deskripsi" rows="3">{{$materi->description}}</textarea>
                             </div>
-                            <div class="mb-3">
-                                <label class="form-label" for="file">File</label>
-                                <input type="file" name="file" class="form-control" id="file">
-                            </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
                     </div>
