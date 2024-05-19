@@ -111,9 +111,15 @@ class="layout-menu menu-vertical menu bg-menu-theme"
     </a>
   </li>
   <li class="menu-item">
-    <a href="/soal" class="menu-link">
+    <a href="/materiGrammar" class="menu-link">
       <i class="menu-icon tf-icons ti ti-notes"></i>
-      <div data-i18n="kunci">kunci</div>
+      <div data-i18n="Materi">materi</div>
+    </a>
+  </li>
+  <li class="menu-item">
+    <a href="/materiReading" class="menu-link">
+      <i class="menu-icon tf-icons ti ti-notes"></i>
+      <div data-i18n="Materi Reading">Materi Reading</div>
     </a>
   </li>
 </ul>

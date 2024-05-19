@@ -37,7 +37,22 @@ class SoalController extends Controller
             'file' => 'required',
         ]);
 
-        Soal::create($request->all()); // Menyimpan data soal baru ke database
+
+        $file = $request->file('file');
+
+        if($file != null) {
+            $file->storeAs('file', $file->hashName());
+            Soal::create([
+                'ujian_id' => $request->ujian_id,
+                'soal' => $request->soal,
+                'file' => $file
+            ]); // Menyimpan data soal baru ke database
+        } else {
+            Soal::create([
+                'ujian_id' => $request->ujian_id,
+                'soal' => $request->soal,
+            ]);
+        }
 
         return redirect()->route('soal.index')->with('success', 'Soal berhasil disimpan');
     }

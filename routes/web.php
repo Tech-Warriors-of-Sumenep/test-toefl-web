@@ -4,6 +4,8 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UjianController;
 use App\Http\Controllers\SoalController;
+use App\Http\Controllers\MateriGrammarController;
+use App\Http\Controllers\MateriReadingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,6 +45,23 @@ Route::middleware('auth')->group(function() {
         Route::put('/soal/{code}', 'update')->name('soal.update');
         Route::delete('/soal/{code}', 'destroy')->name('soal.destroy');
     });
+
+    Route::controller(MateriGrammarController::class)->group(function() {
+        Route::get('/materiGrammar', 'index')->name('materiGrammar.index');
+         Route::get('/materiGrammar/create', 'create')->name('materiGrammar.create');
+         Route::get('/materiGrammar/{code}', 'edit')->name('materiGrammar.edit');
+         Route::post('/materiGrammar', 'store')->name('materiGrammar.store');
+         Route::put('/materiGrammar/{code}', 'update')->name('materiGrammar.update');
+         Route::delete('/materiGrammar/{code}', 'destroy')->name('materiGrammar.destroy');
+     });
+    Route::controller(MateriReadingController::class)->group(function() {
+        Route::get('/materiReading', 'index')->name('materiReading.index');
+         Route::get('/materiReading/create', 'create')->name('materiReading.create');
+         Route::get('/materiReading/{code}', 'edit')->name('materiReading.edit');
+         Route::post('/materiReading', 'store')->name('materiReading.store');
+         Route::put('/materiReading/{code}', 'update')->name('materiReading.update');
+         Route::delete('/materiReading/{code}', 'destroy')->name('materiReading.destroy');
+     });
 });
 
 Route::post('/log', [AuthController::class, 'auth'])->name('auth');
