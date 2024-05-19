@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UjianController;
 use App\Http\Controllers\SoalController;
 use App\Http\Controllers\MateriGrammarController;
+use App\Http\Controllers\GrammerController;
 use App\Http\Controllers\MateriReadingController;
 use Illuminate\Support\Facades\Route;
 
@@ -71,6 +72,14 @@ Route::middleware('auth')->group(function() {
          Route::post('/materiReading', 'store')->name('materiReading.store');
          Route::put('/materiReading/{code}', 'update')->name('materiReading.update');
          Route::delete('/materiReading/{code}', 'destroy')->name('materiReading.destroy');
+     });
+    Route::controller(GrammerController::class)->group(function() {
+        Route::get('/ujian-grammar', 'index')->name('ujian-grammar.index');     
+         Route::get('/ujian-grammar/create', 'create')->name('ujian-grammar.create');
+         Route::get('/ujian-grammar/{code}', 'edit')->name('ujian-grammar.edit');
+         Route::post('/ujian-grammar', 'store')->name('ujian-grammar.store');
+         Route::put('/ujian-grammar/{code}', 'update')->name('ujian-grammar.update');
+         Route::delete('/ujian-grammar/{code}', 'destroy')->name('ujian-grammar.destroy');
      });
 });
 
