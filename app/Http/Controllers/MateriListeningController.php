@@ -7,16 +7,16 @@ use App\Models\Materi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class MateriGrammarController extends Controller
+class MateriListeningController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $materi = Materi::with(['category'])->where('category_id', 1)->get();
-        $no = 1;
-        return view('materiGrammar.index', compact([
+        $materi = Materi::with(['category'])->where('category_id', 3)->get();
+        $no = 3;
+        return view('materiListening.index', compact([
             'materi', 'no'
         ]));
     }
@@ -27,7 +27,7 @@ class MateriGrammarController extends Controller
     public function create()
     {
         $categories = Category::all();
-        return view('materiGrammar.create', compact([
+        return view('materiListening.create', compact([
             'categories'
         ]));
     }
@@ -40,40 +40,49 @@ class MateriGrammarController extends Controller
         $this->validate($request, [
             'title' => 'required|min:8',
             'deskripsi' => 'required|min:8',
-            'file' => 'required|file|mimes:pdf,doc,docx|max:50004',
+            'file' => 'required|file|mimes:mp3,mp4|max:10000',
         ], [
             'file.required' => 'File harus diunggah',
             'file.file' => 'File yang diunggah harus berupa file',
-            'file.mimes' => 'File yang diunggah harus berupa PDF, DOC, atau DOCX',
-            'file.max' => 'Ukuran file maksimal 2 MB',
+            'file.mimes' => 'File yang diunggah harus berupa mp3 dan mp4',
+            'file.max' => 'Ukuran file maksimal 10 MB',
         ]);
 
-        $file_path = $request->file('file')->store('public/files/grammar');
+        $file_path = $request->file('file')->store('public/files/listening');
+
+        $url = Storage::url($file_path);
 
         Materi::create([
             'uuid' => uniqid(),
             'title' => $request->title,
             'description' => $request->deskripsi,
-            'category_id' => 1, // Menyesuaikan dengan nilai category_id yang Anda sebutkan (1)
-            'file' => str_replace('public/', '', $file_path), // Memastikan path file yang disimpan adalah yang benar
+            'category_id' => 3, // Menyesuaikan dengan nilai category_id yang Anda sebutkan (3)
+            'file' => $url, // Simpan URL file di database
         ]);
 
-        return redirect()->route('materiGrammar.index')->with(['success' => 'Data Berhasil Disimpan!']);
+        return redirect()->route('materiListening.index')->with(['success' => 'Data Berhasil Disimpan!']);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
     public function edit(string $code)
-    {
-        $categories = Category::all();
-        $materi = Materi::with(['category'])->where('uuid', $code)->first();
-        return view('materiGrammar.edit', compact(
-            [
-                'categories', 'materi'
-            ]
-        ));
+{
+    // Mengambil daftar kategori untuk dropdown
+    $categories = Category::all();
+
+    // Mengambil materi berdasarkan UUID
+    $materi = Materi::where('uuid', $code)->first();
+
+    // Memastikan materi ditemukan
+    if (!$materi) {
+        return redirect()->route('materiListening.index')->with(['error' => 'Data tidak ditemukan!']);
     }
+
+    // Menampilkan view form edit dengan data materi yang akan diubah dan daftar kategori
+    return view('materiListening.edit', compact('materi', 'categories'));
+}
+
 
     /**
      * Update the specified resource in storage.
@@ -85,19 +94,19 @@ class MateriGrammarController extends Controller
         $this->validate($request, [
             'title' => 'required|min:8',
             'deskripsi' => 'required|min:8',
-            'file' => 'nullable|file|mimes:pdf,doc,docx|max:50004',
+            'file' => 'required|file|mimes:mp3,mp4|max:10000',
         ], [
             'file.file' => 'File yang diunggah harus berupa file',
-            'file.mimes' => 'File yang diunggah harus berupa PDF, DOC, atau DOCX',
-            'file.max' => 'Ukuran file maksimal 2 MB',
+            'file.mimes' => 'File yang diunggah harus berupa mp3 dan mp4',
+            'file.max' => 'Ukuran file maksimal 10 MB',
         ]);
 
         if ($request->hasFile('file')) {
             // Hapus file lama
-            Storage::delete('public/files/grammar/' . $materi->file);
+            Storage::delete('public/files/listening/' . $materi->file);
 
             // Upload file baru
-            $file_path = $request->file('file')->store('public/files/grammar');
+            $file_path = $request->file('file')->store('public/files/listening');
 
             $materi->update([
                 'file' => str_replace('public/', '', $file_path), // Memastikan path file yang disimpan adalah yang benar
@@ -109,7 +118,7 @@ class MateriGrammarController extends Controller
             'description' => $request->deskripsi,
         ]);
 
-        return redirect()->route('materiGrammar.index')->with(['success' => 'Data Berhasil Diupdate!']);
+        return redirect()->route('materiListening.index')->with(['success' => 'Data Berhasil Diupdate!']);
     }
 
     /**
@@ -120,7 +129,7 @@ class MateriGrammarController extends Controller
         $materi = Materi::where('uuid', $code)->first();
 
         if (!$materi) {
-            return redirect()->route('materiGrammar.index')->with(['error' => 'Data tidak ditemukan!']);
+            return redirect()->route('materiListening.index')->with(['error' => 'Data tidak ditemukan!']);
         }
 
         // Hapus file
@@ -128,7 +137,7 @@ class MateriGrammarController extends Controller
 
         $materi->delete();
 
-        return redirect()->route('materiGrammar.index')->with(['success' => 'Data Berhasil Dihapus!']);
+        return redirect()->route('materiListening.index')->with(['success' => 'Data Berhasil Dihapus!']);
     }
 
 }
