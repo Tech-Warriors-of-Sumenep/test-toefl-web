@@ -5,7 +5,14 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UjianController;
 use App\Http\Controllers\SoalController;
 use App\Http\Controllers\MateriGrammarController;
+<<<<<<< HEAD
 use App\Http\Controllers\MateriListeningController;
+=======
+use App\Http\Controllers\GrammerController;
+use App\Http\Controllers\ReadingController;
+use App\Http\Controllers\MateriReadingController;
+use App\Http\Controllers\UjianListeningController;
+>>>>>>> ed454e979cc7bcc16305fb7a85171ea9fb49f1f8
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,25 +26,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-Route::middleware('guest')->group(function() {
+Route::middleware('guest')->group(function () {
     Route::get('/', [HomeController::class, 'home'])->name('home');
     Route::get('/login', [AuthController::class, 'login'])->name('login');
 });
 
-Route::middleware('auth')->group(function() {
+Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [HomeController::class, 'dashboard']);
 
-    Route::controller(UjianController::class)->group(function() {
-        Route::get('/ujian', 'index')->name('ujian.index');
-        Route::get('/ujian/create', 'create')->name('ujian.create');
-        Route::get('/ujian/{code}', 'edit')->name('ujian.edit');
-        Route::post('/ujian', 'store')->name('ujian.store');
-        Route::put('/ujian/{code}', 'update')->name('ujian.update');
-        Route::delete('/ujian/{code}', 'destroy')->name('ujian.destroy');
-    });
-
-    Route::controller(SoalController::class)->group(function() {
+    Route::controller(SoalController::class)->group(function () {
         Route::get('/soal', 'index')->name('soal.index');
         Route::get('/soal/create', 'create')->name('soal.create');
         Route::get('/soal/{code}', 'edit')->name('soal.edit');
@@ -46,8 +43,10 @@ Route::middleware('auth')->group(function() {
         Route::delete('/soal/{code}', 'destroy')->name('soal.destroy');
     });
 
-    Route::controller(MateriGrammarController::class)->group(function() {
+    // Materi Controllers
+    Route::controller(MateriGrammarController::class)->group(function () {
         Route::get('/materiGrammar', 'index')->name('materiGrammar.index');
+<<<<<<< HEAD
          Route::get('/materiGrammar/create', 'create')->name('materiGrammar.create');
          Route::get('/materiGrammar/{code}', 'edit')->name('materiGrammar.edit');
          Route::post('/materiGrammar', 'store')->name('materiGrammar.store');
@@ -63,6 +62,51 @@ Route::middleware('auth')->group(function() {
          Route::put('/materiListening/{code}', 'update')->name('materiListening.update');
          Route::delete('/materiListening/{code}', 'destroy')->name('materiListening.destroy');
      });
+=======
+        Route::get('/materiGrammar/create', 'create')->name('materiGrammar.create');
+        Route::get('/materiGrammar/{code}', 'edit')->name('materiGrammar.edit');
+        Route::post('/materiGrammar', 'store')->name('materiGrammar.store');
+        Route::put('/materiGrammar/{code}', 'update')->name('materiGrammar.update');
+        Route::delete('/materiGrammar/{code}', 'destroy')->name('materiGrammar.destroy');
+    });
+
+    Route::controller(MateriReadingController::class)->group(function () {
+        Route::get('/materiReading', 'index')->name('materiReading.index');
+        Route::get('/materiReading/create', 'create')->name('materiReading.create');
+        Route::get('/materiReading/{code}', 'edit')->name('materiReading.edit');
+        Route::post('/materiReading', 'store')->name('materiReading.store');
+        Route::put('/materiReading/{code}', 'update')->name('materiReading.update');
+        Route::delete('/materiReading/{code}', 'destroy')->name('materiReading.destroy');
+    });
+
+    //  Ujian Controllers
+    Route::controller(GrammerController::class)->group(function () {
+        Route::get('/ujian-grammar', 'index')->name('ujian-grammar.index');
+        Route::get('/ujian-grammar/create', 'create')->name('ujian-grammar.create');
+        Route::get('/ujian-grammar/{code}', 'edit')->name('ujian-grammar.edit');
+        Route::post('/ujian-grammar', 'store')->name('ujian-grammar.store');
+        Route::put('/ujian-grammar/{code}', 'update')->name('ujian-grammar.update');
+        Route::delete('/ujian-grammar/{code}', 'destroy')->name('ujian-grammar.destroy');
+    });
+
+    Route::controller(UjianListeningController::class)->group(function () {
+        Route::get('/ujian-listening', 'index')->name('ujian-listening.index');
+        Route::get('/ujian-listening/create', 'create')->name('ujian-listening.create');
+        Route::get('/ujian-listening/{code}', 'edit')->name('ujian-listening.edit');
+        Route::post('/ujian-listening', 'store')->name('ujian-listening.store');
+        Route::put('/ujian-listening/{code}', 'update')->name('ujian-listening.update');
+        Route::delete('/ujian-listening/{code}', 'destroy')->name('ujian-listening.destroy');
+    });
+
+    Route::controller(ReadingController::class)->group(function () {
+        Route::get('/ujian-reading', 'index')->name('ujian-reading.index');
+        Route::get('/ujian-reading/create', 'create')->name('ujian-reading.create');
+        Route::get('/ujian-reading/{code}', 'edit')->name('ujian-reading.edit');
+        Route::post('/ujian-reading', 'store')->name('ujian-reading.store');
+        Route::put('/ujian-reading/{code}', 'update')->name('ujian-reading.update');
+        Route::delete('/ujian-reading/{code}', 'destroy')->name('ujian-reading.destroy');
+    });
+>>>>>>> ed454e979cc7bcc16305fb7a85171ea9fb49f1f8
 });
 
 Route::post('/log', [AuthController::class, 'auth'])->name('auth');
