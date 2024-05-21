@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\UjianController;
 use App\Http\Controllers\Api\MateriListeningController;
+use App\Http\Controllers\Api\MateriGrammarController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -24,3 +25,6 @@ Route::controller(UjianController::class)->group(function() {
     Route::get('/ujian', 'index')->name('ujian.index');
 });
 
+Route::controller(MateriGrammarController::class)->group(function() {
+    Route::get('/materiGrammar', 'index')->name('materi.index');
+});

@@ -75,7 +75,7 @@
         <li class="menu-item">
             <a href="/materiGrammar" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-book"></i>
-                <div data-i18n="Materi">materi</div>
+                <div data-i18n="Materi Grammar">materi Grammar</div>
             </a>
         </li>
         <li class="menu-item">
