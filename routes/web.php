@@ -8,6 +8,7 @@ use App\Http\Controllers\MateriGrammarController;
 use App\Http\Controllers\GrammerController;
 use App\Http\Controllers\ReadingController;
 use App\Http\Controllers\MateriReadingController;
+use App\Http\Controllers\SoalListeningController;
 use App\Http\Controllers\UjianListeningController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,13 +31,23 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [HomeController::class, 'dashboard']);
 
+    // Soal Controllers
     Route::controller(SoalController::class)->group(function () {
         Route::get('/soal', 'index')->name('soal.index');
-        Route::get('/soal/create', 'create')->name('soal.create');
+        Route::get('/soal/create/{ujian}', 'create')->name('soal.create');
         Route::get('/soal/{code}', 'edit')->name('soal.edit');
         Route::post('/soal', 'store')->name('soal.store');
         Route::put('/soal/{code}', 'update')->name('soal.update');
         Route::delete('/soal/{code}', 'destroy')->name('soal.destroy');
+    });
+
+    Route::controller(SoalListeningController::class)->group(function () {
+        Route::get('/soal-listening', 'index')->name('soal-listening.index');
+        Route::get('/soal-listening/create/{ujian}', 'create')->name('soal-listening.create');
+        Route::get('/soal-listening/{code}', 'edit')->name('soal-listening.edit');
+        Route::post('/soal-listening', 'store')->name('soal-listening.store');
+        Route::put('/soal-listening/{code}', 'update')->name('soal-listening.update');
+        Route::delete('/soal-listening/{code}', 'destroy')->name('soal-listening.destroy');
     });
 
     // Materi Controllers
