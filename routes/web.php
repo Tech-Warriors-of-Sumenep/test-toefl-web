@@ -5,19 +5,12 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UjianController;
 use App\Http\Controllers\SoalController;
 use App\Http\Controllers\MateriGrammarController;
-<<<<<<< HEAD
-use App\Http\Controllers\GrammerController;
-use App\Http\Controllers\ReadingController;
-use App\Http\Controllers\MateriReadingController;
-use App\Http\Controllers\SoalListeningController;
-use App\Http\Controllers\UjianListeningController;
-=======
 use App\Http\Controllers\MateriListeningController; // dari HEAD
 use App\Http\Controllers\GrammerController; // dari ed454e9
 use App\Http\Controllers\ReadingController; // dari ed454e9
 use App\Http\Controllers\MateriReadingController; // dari ed454e9
+use App\Http\Controllers\SoalListeningController;
 use App\Http\Controllers\UjianListeningController; // dari ed454e9
->>>>>>> 6355a845e77b3ce41df68d83547465b1b7d6d957
 use Illuminate\Support\Facades\Route;
 
 /*
