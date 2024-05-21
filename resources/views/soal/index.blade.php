@@ -36,7 +36,10 @@
                 {{ $soal->soal }}
               </td>
               <td>
-                {{ $soal->file }}
+                <audio controls>
+                  <source src="/storage/file/{{ $soal->file }}" type="audio/mpeg">
+                  Your browser does not support the audio element.
+                </audio>
               </td>
               <td>
                 <div class="dropdown">
