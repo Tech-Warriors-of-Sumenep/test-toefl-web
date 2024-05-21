@@ -5,14 +5,11 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UjianController;
 use App\Http\Controllers\SoalController;
 use App\Http\Controllers\MateriGrammarController;
-<<<<<<< HEAD
-use App\Http\Controllers\MateriListeningController;
-=======
-use App\Http\Controllers\GrammerController;
-use App\Http\Controllers\ReadingController;
-use App\Http\Controllers\MateriReadingController;
-use App\Http\Controllers\UjianListeningController;
->>>>>>> ed454e979cc7bcc16305fb7a85171ea9fb49f1f8
+use App\Http\Controllers\MateriListeningController; // dari HEAD
+use App\Http\Controllers\GrammerController; // dari ed454e9
+use App\Http\Controllers\ReadingController; // dari ed454e9
+use App\Http\Controllers\MateriReadingController; // dari ed454e9
+use App\Http\Controllers\UjianListeningController; // dari ed454e9
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -46,28 +43,20 @@ Route::middleware('auth')->group(function () {
     // Materi Controllers
     Route::controller(MateriGrammarController::class)->group(function () {
         Route::get('/materiGrammar', 'index')->name('materiGrammar.index');
-<<<<<<< HEAD
-         Route::get('/materiGrammar/create', 'create')->name('materiGrammar.create');
-         Route::get('/materiGrammar/{code}', 'edit')->name('materiGrammar.edit');
-         Route::post('/materiGrammar', 'store')->name('materiGrammar.store');
-         Route::put('/materiGrammar/{code}', 'update')->name('materiGrammar.update');
-         Route::delete('/materiGrammar/{code}', 'destroy')->name('materiGrammar.destroy');
-     });
-
-    Route::controller(MateriListeningController::class)->group(function() {
-        Route::get('/materiListening', 'index')->name('materiListening.index');
-         Route::get('/materiListening/create', 'create')->name('materiListening.create');
-         Route::get('/materiListening/{code}', 'edit')->name('materiListening.edit');
-         Route::post('/materiListening', 'store')->name('materiListening.store');
-         Route::put('/materiListening/{code}', 'update')->name('materiListening.update');
-         Route::delete('/materiListening/{code}', 'destroy')->name('materiListening.destroy');
-     });
-=======
         Route::get('/materiGrammar/create', 'create')->name('materiGrammar.create');
         Route::get('/materiGrammar/{code}', 'edit')->name('materiGrammar.edit');
         Route::post('/materiGrammar', 'store')->name('materiGrammar.store');
         Route::put('/materiGrammar/{code}', 'update')->name('materiGrammar.update');
         Route::delete('/materiGrammar/{code}', 'destroy')->name('materiGrammar.destroy');
+    });
+
+    Route::controller(MateriListeningController::class)->group(function () {
+        Route::get('/materiListening', 'index')->name('materiListening.index');
+        Route::get('/materiListening/create', 'create')->name('materiListening.create');
+        Route::get('/materiListening/{code}', 'edit')->name('materiListening.edit');
+        Route::post('/materiListening', 'store')->name('materiListening.store');
+        Route::put('/materiListening/{code}', 'update')->name('materiListening.update');
+        Route::delete('/materiListening/{code}', 'destroy')->name('materiListening.destroy');
     });
 
     Route::controller(MateriReadingController::class)->group(function () {
@@ -106,7 +95,6 @@ Route::middleware('auth')->group(function () {
         Route::put('/ujian-reading/{code}', 'update')->name('ujian-reading.update');
         Route::delete('/ujian-reading/{code}', 'destroy')->name('ujian-reading.destroy');
     });
->>>>>>> ed454e979cc7bcc16305fb7a85171ea9fb49f1f8
 });
 
 Route::post('/log', [AuthController::class, 'auth'])->name('auth');

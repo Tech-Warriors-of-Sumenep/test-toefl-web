@@ -62,39 +62,6 @@
       </li>
     </ul>
   </li> --}}
-<<<<<<< HEAD
-  <li class="menu-item">
-    <a href="/dashboard" class="menu-link">
-      <i class="menu-icon tf-icons ti ti-smart-home"></i>
-      <div data-i18n="Dashboards">Dashboards</div>
-    </a>
-  </li>
-  <li class="menu-item">
-    <a href="/ujian" class="menu-link">
-      <i class="menu-icon tf-icons ti ti-notes"></i>
-      <div data-i18n="Ujian">Ujian</div>
-    </a>
-  </li>
-  <li class="menu-item">
-    <a href="/soal" class="menu-link">
-      <i class="menu-icon tf-icons ti ti-notes"></i>
-      <div data-i18n="Soal">Soal</div>
-    </a>
-  </li>
-  <li class="menu-item">
-    <a href="/materiGrammar" class="menu-link">
-      <i class="menu-icon tf-icons ti ti-notes"></i>
-      <div data-i18n="Materi">materi</div>
-    </a>
-  </li>
-  <li class="menu-item">
-    <a href="/materiListening" class="menu-link">
-      <i class="menu-icon tf-icons ti ti-book"></i>
-      <div data-i18n="listening">listening</div>
-    </a>
-  </li>
-</ul>
-=======
         <li class="menu-item">
             <a href="/dashboard" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-smart-home"></i>
@@ -107,16 +74,23 @@
         </li>
         <li class="menu-item">
             <a href="/materiGrammar" class="menu-link">
-                <i class="menu-icon tf-icons ti ti-notes"></i>
+                <i class="menu-icon tf-icons ti ti-book"></i>
                 <div data-i18n="Materi">materi</div>
             </a>
         </li>
         <li class="menu-item">
             <a href="/materiReading" class="menu-link">
-                <i class="menu-icon tf-icons ti ti-notes"></i>
+                <i class="menu-icon tf-icons ti ti-book"></i>
                 <div data-i18n="Materi Reading">Materi Reading</div>
             </a>
         </li>
+
+        <li class="menu-item">
+            <a href="/materiListening" class="menu-link">
+              <i class="menu-icon tf-icons ti ti-book"></i>
+              <div data-i18n=" Materi listening"> Materi listening</div>
+            </a>
+          </li>
 
         <li class="menu-header small text-uppercase">
             <span class="menu-header-text" data-i18n="Ujian">Ujian</span>
@@ -150,5 +124,4 @@
             </a>
         </li>
     </ul>
->>>>>>> ed454e979cc7bcc16305fb7a85171ea9fb49f1f8
 </aside>
