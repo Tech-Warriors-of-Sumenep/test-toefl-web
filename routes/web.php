@@ -5,11 +5,19 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UjianController;
 use App\Http\Controllers\SoalController;
 use App\Http\Controllers\MateriGrammarController;
+<<<<<<< HEAD
 use App\Http\Controllers\GrammerController;
 use App\Http\Controllers\ReadingController;
 use App\Http\Controllers\MateriReadingController;
 use App\Http\Controllers\SoalListeningController;
 use App\Http\Controllers\UjianListeningController;
+=======
+use App\Http\Controllers\MateriListeningController; // dari HEAD
+use App\Http\Controllers\GrammerController; // dari ed454e9
+use App\Http\Controllers\ReadingController; // dari ed454e9
+use App\Http\Controllers\MateriReadingController; // dari ed454e9
+use App\Http\Controllers\UjianListeningController; // dari ed454e9
+>>>>>>> 6355a845e77b3ce41df68d83547465b1b7d6d957
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -58,6 +66,15 @@ Route::middleware('auth')->group(function () {
         Route::post('/materiGrammar', 'store')->name('materiGrammar.store');
         Route::put('/materiGrammar/{code}', 'update')->name('materiGrammar.update');
         Route::delete('/materiGrammar/{code}', 'destroy')->name('materiGrammar.destroy');
+    });
+
+    Route::controller(MateriListeningController::class)->group(function () {
+        Route::get('/materiListening', 'index')->name('materiListening.index');
+        Route::get('/materiListening/create', 'create')->name('materiListening.create');
+        Route::get('/materiListening/{code}', 'edit')->name('materiListening.edit');
+        Route::post('/materiListening', 'store')->name('materiListening.store');
+        Route::put('/materiListening/{code}', 'update')->name('materiListening.update');
+        Route::delete('/materiListening/{code}', 'destroy')->name('materiListening.destroy');
     });
 
     Route::controller(MateriReadingController::class)->group(function () {

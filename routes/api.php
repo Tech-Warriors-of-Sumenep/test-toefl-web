@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\UjianController;
+use App\Http\Controllers\Api\MateriListeningController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,3 +23,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::controller(UjianController::class)->group(function() {
     Route::get('/ujian', 'index')->name('ujian.index');
 });
+
