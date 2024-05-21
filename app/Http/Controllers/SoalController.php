@@ -35,7 +35,7 @@ class SoalController extends Controller
         $this->validate($request, [
             'ujian' => 'required',
             'soal' => 'required',
-            'file' => 'nullable|mimes:audio/mpeg,mpga,mp3,wav,aac|max:10240' // Validate audio file
+            'file' => 'nullable' // Validate audio file
         ]);
     
         // Handle file upload
