@@ -11,7 +11,7 @@ use Illuminate\Http\Response;
 class UjianController extends Controller
 {
     public function index(): JsonResponse {
-        $ujian = Ujian::with(['category'])->get();
+        $ujian = Ujian::with(['category','soal'])->get();
         return response()->json([
             "msg" => "Get Data Has Been Successfully",
             "payload" => $ujian

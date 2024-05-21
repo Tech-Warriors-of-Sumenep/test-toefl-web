@@ -3,13 +3,18 @@
 @section('content')
 <div class="container-xxl flex-grow-1 container-p-y">         
     <h4 class="py-3 mb-4">
-        Soal
+        Soal Ujian Listening
     </h4>
     <!-- Hoverable Table rows -->
     <div class="card">
         <div class="row g-0">
             <div class="col-lg-6 p-4">
-                <h5 class="card-header">Data Soal</h5>
+                <h5 class="card-header">Data Soal Ujian</h5>
+            </div>
+            <div class="col-lg-6 p-4" style="display: flex; height: auto; align-items: center; justify-content:end">
+                <a href="{{ route('ujian-listening.create') }}" class="">
+                    <button type="button" class="btn rounded-pill btn-success waves-effect waves-light">Create</button>
+                </a>
             </div>
         </div>
       <div class="table-responsive text-nowrap">
@@ -24,29 +29,28 @@
             </tr>
           </thead>
           <tbody class="table-border-bottom-0">     
-            @foreach ($soals as $soal)
+            @foreach ($soal as $item)
             <tr>
               <td>
-                {{ $loop->iteration }}
+                {{$no++}}
               </td>
               <td>
-                {{ $soal->ujian->title }}
+                {{$item->ujian->title}}
               </td>
               <td>
-                {{ $soal->soal }}
+                {{
+                  $item->soal
+                }}
               </td>
               <td>
-                <audio controls>
-                  <source src="/storage/file/{{ $soal->file }}" type="audio/mpeg">
-                  Your browser does not support the audio element.
-                </audio>
+                {{$item->file}}
               </td>
               <td>
                 <div class="dropdown">
                   <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="ti ti-dots-vertical"></i></button>
                   <div class="dropdown-menu">
-                    <a class="dropdown-item" href="{{ route('soal.edit', $soal->id) }}"><i class="ti ti-pencil me-1"></i> Edit</a>
-                    <form action="{{ route('soal.destroy', $soal->id) }}" method="POST">
+                    <a class="dropdown-item" href="{{ route('soal-listening.edit', ['code'=> $item->id]) }}"><i class="ti ti-pencil me-1"></i> Edit</a>
+                    <form action="{{ route('soal-listening.destroy', ['code'=> $item->id]) }}" method="POST">
                       @csrf
                       @method('DELETE')
                       <button type="submit" class="dropdown-item"><i class="ti ti-trash me-1"></i> Delete</button>
