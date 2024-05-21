@@ -18,8 +18,8 @@ class MateriListeningController extends Controller
     {
         $materi = Materi::with(['category'])->where('category_id', 3)->get();
         return response()->json([
-            'message' => 'Data retrieved successfully',
-            'data' => $materi
+            "msg" => "Data berhasil diambil",
+            'payload' => $materi
         ]);
     }
 }
