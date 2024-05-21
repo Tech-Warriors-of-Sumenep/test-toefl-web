@@ -24,3 +24,6 @@ Route::controller(UjianController::class)->group(function() {
     Route::get('/ujian', 'index')->name('ujian.index');
 });
 
+Route::controller(MateriListeningController::class)->group(function() {
+    Route::get('/MateriListening', 'index')->name('Materi.index');
+});
