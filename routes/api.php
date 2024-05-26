@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\CategoryController;
+use App\Http\Controllers\Api\MateriReadingController;
 use App\Http\Controllers\Api\UjianController;
 use App\Http\Controllers\Api\MateriListeningController;
 use App\Http\Controllers\Api\MateriGrammarController;
@@ -37,3 +38,9 @@ Route::controller(MateriListeningController::class)->group(function() {
 Route::controller(MateriGrammarController::class)->group(function() {
     Route::get('/materiGrammar', 'index')->name('materi.index');
 });
+
+Route::controller(MateriReadingController::class)->group(function() {
+    Route::get('/materiReading', 'index')->name('materiReading.index');
+});
+
+
