@@ -3,18 +3,13 @@
 @section('content')
 <div class="container-xxl flex-grow-1 container-p-y">         
     <h4 class="py-3 mb-4">
-        Ujian Listening
+        Soal
     </h4>
     <!-- Hoverable Table rows -->
     <div class="card">
         <div class="row g-0">
             <div class="col-lg-6 p-4">
-                <h5 class="card-header">Data Ujian</h5>
-            </div>
-            <div class="col-lg-6 p-4" style="display: flex; height: auto; align-items: center; justify-content:end">
-                <a href="{{ route('ujian-listening.create') }}" class="">
-                    <button type="button" class="btn rounded-pill btn-success waves-effect waves-light">Create</button>
-                </a>
+                <h5 class="card-header">Data Soal</h5>
             </div>
         </div>
       <div class="table-responsive text-nowrap">
@@ -22,48 +17,40 @@
           <thead>
             <tr>
               <th>No.</th>
-              <th>Kode Ujian</th>
-              <th>Title</th>
-              <th>Kategori</th>
-              <th>Deskripsi</th>
+              <th>Ujian</th>
+              <th>Soal</th>
+              <th>File</th>
               <th>Actions</th>
             </tr>
           </thead>
           <tbody class="table-border-bottom-0">     
-            @foreach ($ujian as $item)
+            @foreach ($soals as $soal)
             <tr>
               <td>
-                {{$no++}}
+                {{ $loop->iteration }}
               </td>
               <td>
-                {{$item->uuid}}
+                {{ $soal->ujian->title }}
               </td>
               <td>
-                {{
-                  $item->title
-                }}
+                {{ $soal->soal }}
               </td>
               <td>
-                <span class="badge bg-label-info me-1">
-                  {{
-                    $item->category->name
-                  }}
-                </span>
-              </td>
-              <td>
-                {{$item->description}}
+                <audio controls>
+                  <source src="/storage/file/{{ $soal->file }}" type="audio/mpeg">
+                  Your browser does not support the audio element.
+                </audio>
               </td>
               <td>
                 <div class="dropdown">
                   <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="ti ti-dots-vertical"></i></button>
                   <div class="dropdown-menu">
-                    <a class="dropdown-item" href="{{ route('ujian-listening.edit', ['code'=> $item->uuid]) }}"><i class="ti ti-pencil me-1"></i> Edit</a>
-                    <form action="{{ route('ujian-listening.destroy', ['code'=> $item->uuid]) }}" method="POST">
+                    <a class="dropdown-item" href="{{ route('soal-listening.edit', $soal->id) }}"><i class="ti ti-pencil me-1"></i> Edit</a>
+                    <form action="{{ route('soal-listening.destroy', $soal->id) }}" method="POST">
                       @csrf
                       @method('DELETE')
                       <button type="submit" class="dropdown-item"><i class="ti ti-trash me-1"></i> Delete</button>
                     </form>
-                    <a class="dropdown-item" href="{{ route('soal-listening.create', ['ujian'=> $item->id]) }}"><i class="ti ti-clipboard-text me-1"></i> Create Soal</a>
                   </div>
                 </div>
               </td>

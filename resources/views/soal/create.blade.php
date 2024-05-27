@@ -23,7 +23,7 @@
                             <input type="hidden" name="ujian" value="{{ $ujian }}">
                             <div class="mb-3">
                                 <label class="form-label" for="file">File</label>
-                                <input type="file" name="file" class="form-control" id="file" placeholder="File" accept=".mp3, .wav">
+                                <input type="file" name="file" class="form-control" id="file">
                                 @error('file')
                                     <div class="form-text text-danger">
                                         {{ $message }}
