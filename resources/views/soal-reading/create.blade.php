@@ -9,7 +9,7 @@
                         <h5 class="mb-0">Create Soal Ujian</h5>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('soal.store') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('soal-reading.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
                                 <label class="form-label" for="soal">Soal</label>
@@ -23,7 +23,7 @@
                             <input type="hidden" name="ujian" value="{{ $ujian }}">
                             <div class="mb-3">
                                 <label class="form-label" for="file">File</label>
-                                <input type="file" name="file" class="form-control" id="file" placeholder="File" accept=".mp3, .wav">
+                                <input type="file" name="file" class="form-control" id="file">
                                 @error('file')
                                     <div class="form-text text-danger">
                                         {{ $message }}

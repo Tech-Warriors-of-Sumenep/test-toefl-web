@@ -3,26 +3,33 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Ujian;
+use App\Models\Soal;
 
 class SoalReadingController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    private int $category = 2;
     public function index()
     {
-        $soals = Soal::with(['ujian', 'jawaban'])->get(); // Mengambil semua data soal dengan informasi ujian terkait
-        return view('soal.index', compact('soals')); // Mengirim data soal ke view
-        //
+        $no = 1;
+        $ujian = Ujian::with(['category'])
+            ->where('category_id', $this->category)
+            ->get(); // Mengambil semua ujian
+        return view('soal-reading.index', compact(['ujian', 'no'])); // Mengirim data ujian ke view
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(string $ujian)
     {
-        return view('soal.create', compact(['ujian'])); // Mengirim data ujian ke view
-        //
+        return view('soal-reading.create', compact(['ujian'])); // Mengirim data ujian ke view
+    }
+
+    public function detail_soal(string $ujian)
+    {
+        $soals = Soal::with(['ujian'])->where('ujian_id', $ujian)->get();
+        return view('soal-reading.detail-soal', compact(['soals'])); // Mengirim data ujian ke view
     }
 
     /**
@@ -30,21 +37,20 @@ class SoalReadingController extends Controller
      */
     public function store(Request $request)
     {
-        
         // Validate the incoming request data
         $this->validate($request, [
             'ujian' => 'required',
             'soal' => 'required',
-            'file' => 'nullable' // Validate audio file
+            'file' => 'nullable', // Validate audio file
         ]);
-    
+
         // Handle file upload
         $file = $request->file('file');
-    
+
         if ($file != null) {
             // Store the file in the 'public/file' directory
             $file->storeAs('public/file', $file->hashName());
-    
+
             // Create a new record in the Soal table
             Soal::create([
                 'ujian_id' => $request->ujian,
@@ -58,37 +64,34 @@ class SoalReadingController extends Controller
                 'soal' => $request->soal,
             ]);
         }
-    
+
         // Redirect back to the index route with a success message
-        return redirect()->route('soal.index')->with('success', 'Soal berhasil disimpan');
-        //
+        return redirect()->route('soal-reading.index')->with('success', 'Soal berhasil disimpan');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
         $soal = Soal::findOrFail($id); // Mencari data soal berdasarkan ID
         return view('soal.show', compact('soal')); // Mengirim data soal ke view
-        //
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
         $soal = Soal::findOrFail($id); // Mencari data soal berdasarkan ID
         $ujians = Ujian::all(); // Mengambil semua data ujian
-        return view('soal.edit', compact('soal', 'ujians')); // Mengirim data soal dan ujian ke view
-        //
+        return view('soal-reading.edit', compact('soal', 'ujians')); // Mengirim data soal dan ujian ke view
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
         $this->validate($request, [
             'ujian_id' => 'required',
@@ -120,14 +123,13 @@ class SoalReadingController extends Controller
             ]);
         }
 
-        return redirect()->route('soal.index')->with('success', 'Soal berhasil diupdate');
-        //
+        return redirect()->route('soal-reading.index')->with('success', 'Soal berhasil diupdate');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
         $soal = Soal::findOrFail($id);
 
@@ -137,7 +139,6 @@ class SoalReadingController extends Controller
         }
         $soal->delete();
 
-        return redirect()->route('soal.index')->with('success', 'Soal berhasil dihapus');
-        //
+        return redirect()->route('soal-reading.index')->with('success', 'Soal berhasil dihapus');
     }
 }
