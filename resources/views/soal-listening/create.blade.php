@@ -6,14 +6,14 @@
             <div class="col-xl">
                 <div class="card mb-4">
                     <div class="card-header d-flex justify-content-between align-items-center">
-                        <h5 class="mb-0">Create Soal Ujian Listening</h5>
+                        <h5 class="mb-0">Create Soal Ujian</h5>
                     </div>
                     <div class="card-body">
                         <form action="{{ route('soal-listening.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
-                              <label class="form-label" for="soal">Soal</label>
-                              <textarea id="soal" name="soal" class="form-control" placeholder="Soal Ujian"></textarea>
+                                <label class="form-label" for="soal">Soal</label>
+                                <textarea id="soal" name="soal" class="form-control" placeholder="Soal Ujian"></textarea>
                                 @error('soal')
                                     <div class="form-text text-danger">
                                         {{ $message }}
@@ -23,7 +23,7 @@
                             <input type="hidden" name="ujian" value="{{ $ujian }}">
                             <div class="mb-3">
                                 <label class="form-label" for="file">File</label>
-                                <input type="file" name="file" class="form-control" id="file" placeholder="File">
+                                <input type="file" name="file" class="form-control" id="file">
                                 @error('file')
                                     <div class="form-text text-danger">
                                         {{ $message }}

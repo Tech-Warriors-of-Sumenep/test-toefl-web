@@ -13,15 +13,31 @@
                             @csrf
                             <div class="mb-3">
                                 <label class="form-label" for="title">Title</label>
-                                <input type="text" name="title" class="form-control" id="title" placeholder="Title">
+                                <input type="text" name="title" class="form-control" id="title"
+                                    placeholder="Title">
+                                @error('title')
+                                    <div class="form-text text-danger">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="deskripsi">Description</label>
                                 <textarea name="deskripsi" class="form-control" id="deskripsi" placeholder="Description" rows="3"></textarea>
+                                @error('deskripsi')
+                                    <div class="form-text text-danger">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="file">File Audio</label>
                                 <input type="file" name="file" class="form-control" id="file">
+                                @error('file')
+                                    <div class="form-text text-danger">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>

@@ -46,6 +46,7 @@ Route::middleware('auth')->group(function () {
 
     Route::controller(SoalListeningController::class)->group(function () {
         Route::get('/soal-listening', 'index')->name('soal-listening.index');
+        Route::get('/soal-listening/detail-soal/{ujian}', 'detail_soal')->name('soal-listening.detail-soal');
         Route::get('/soal-listening/create/{ujian}', 'create')->name('soal-listening.create');
         Route::get('/soal-listening/{code}', 'edit')->name('soal-listening.edit');
         Route::post('/soal-listening', 'store')->name('soal-listening.store');
