@@ -123,5 +123,17 @@
                 <div data-i18n="Soal">Soal</div>
             </a>
         </li>
+        <li class="menu-item">
+            <a href="/soal-grammar" class="menu-link">
+                <i class="menu-icon tf-icons ti ti-notes"></i>
+                <div data-i18n="Soal Grammar">Soal Grammar</div>
+            </a>
+        </li>
+        <li class="menu-item">
+            <a href="/soal-reading" class="menu-link">
+                <i class="menu-icon tf-icons ti ti-notes"></i>
+                <div data-i18n="Soal Reading">Soal Reading</div>
+            </a>
+        </li>
     </ul>
 </aside>

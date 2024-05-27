@@ -11,6 +11,8 @@ use App\Http\Controllers\ReadingController; // dari ed454e9
 use App\Http\Controllers\MateriReadingController; // dari ed454e9
 use App\Http\Controllers\SoalListeningController;
 use App\Http\Controllers\UjianListeningController; // dari ed454e9
+use App\Http\Controllers\SoalGrammarController; // dari ed454e9
+use App\Http\Controllers\SoalReadingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -105,6 +107,22 @@ Route::middleware('auth')->group(function () {
         Route::post('/ujian-reading', 'store')->name('ujian-reading.store');
         Route::put('/ujian-reading/{code}', 'update')->name('ujian-reading.update');
         Route::delete('/ujian-reading/{code}', 'destroy')->name('ujian-reading.destroy');
+    });
+    Route::controller(SoalReadingController::class)->group(function () {
+        Route::get('/soal-reading', 'index')->name('soal-reading.index');
+        Route::get('/soal-reading/create', 'create')->name('soal-reading.create');
+        Route::get('/soal-reading/{code}', 'edit')->name('soal-reading.edit');
+        Route::post('/soal-reading', 'store')->name('soal-reading.store');
+        Route::put('/soal-reading/{code}', 'update')->name('soal-reading.update');
+        Route::delete('/soal-reading/{code}', 'destroy')->name('soal-reading.destroy');
+    });
+    Route::controller(SoalGrammarController::class)->group(function () {
+        Route::get('/soal-grammar', 'index')->name('soal-grammar.index');
+        Route::get('/soal-grammar/create', 'create')->name('soal-grammar.create');
+        Route::get('/soal-grammar/{code}', 'edit')->name('soal-grammar.edit');
+        Route::post('/soal-grammar', 'store')->name('soal-grammar.store');
+        Route::put('/soal-grammar/{code}', 'update')->name('soal-grammar.update');
+        Route::delete('/soal-grammar/{code}', 'destroy')->name('soal-grammar.destroy');
     });
 });
 

@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Soal; // Menggunakan model Soal yang telah dibuat
-use App\Models\Ujian;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
-class SoalController extends Controller
+class SoalGrammarController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,9 +18,10 @@ class SoalController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(string $ujian)
+    public function create()
     {
         return view('soal.create', compact(['ujian'])); // Mengirim data ujian ke view
+        //
     }
 
     /**
@@ -62,31 +60,34 @@ class SoalController extends Controller
         // Redirect back to the index route with a success message
         return redirect()->route('soal.index')->with('success', 'Soal berhasil disimpan');
     }
-    
 
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function show(string $id)
     {
         $soal = Soal::findOrFail($id); // Mencari data soal berdasarkan ID
         return view('soal.show', compact('soal')); // Mengirim data soal ke view
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit($id)
+    public function edit(string $id)
     {
         $soal = Soal::findOrFail($id); // Mencari data soal berdasarkan ID
-        return view('soal.show', compact('soal')); // Mengirim data soal ke view
+        $ujians = Ujian::all(); // Mengambil semua data ujian
+        return view('soal.edit', compact('soal', 'ujians')); // Mengirim data soal dan ujian ke view
+        //
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, string $id)
     {
+        
         $this->validate($request, [
             'ujian_id' => 'required',
             'soal' => 'required',
@@ -118,12 +119,13 @@ class SoalController extends Controller
         }
 
         return redirect()->route('soal.index')->with('success', 'Soal berhasil diupdate');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($id)
+    public function destroy(string $id)
     {
         $soal = Soal::findOrFail($id);
 
@@ -134,5 +136,6 @@ class SoalController extends Controller
         $soal->delete();
 
         return redirect()->route('soal.index')->with('success', 'Soal berhasil dihapus');
+        //
     }
 }
