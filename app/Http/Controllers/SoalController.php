@@ -79,8 +79,7 @@ class SoalController extends Controller
     public function edit($id)
     {
         $soal = Soal::findOrFail($id); // Mencari data soal berdasarkan ID
-        $ujians = Ujian::all(); // Mengambil semua data ujian
-        return view('soal.edit', compact('soal', 'ujians')); // Mengirim data soal dan ujian ke view
+        return view('soal.show', compact('soal')); // Mengirim data soal ke view
     }
 
     /**
