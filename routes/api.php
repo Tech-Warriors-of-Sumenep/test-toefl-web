@@ -26,6 +26,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::controller(UjianListeningController::class)->group(function() {
     Route::get('/ujian-listening', 'index')->name('ujian-listening.index');
+    Route::get('/ujian-listening/{code}', 'getUjianByCode')->name('ujian-listening.getUjianByCode');
 });
 
 Route::controller(CategoryController::class)->group(function() {

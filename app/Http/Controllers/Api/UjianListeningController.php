@@ -18,4 +18,12 @@ class UjianListeningController extends Controller
             "payload" => $ujian
         ]);
     }
+
+    public function getUjianByCode(String $code): JsonResponse {
+        $ujian = Ujian::with(['category','soal'])->where('uuid', $code)->first();
+        return response()->json([
+            "msg" => "Get Data Has Been Successfully",
+            "payload" => $ujian
+        ]);
+    }
 }
