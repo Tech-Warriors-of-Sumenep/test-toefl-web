@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\MateriReadingController;
 use App\Http\Controllers\Api\UjianController;
 use App\Http\Controllers\Api\MateriListeningController;
 use App\Http\Controllers\Api\MateriGrammarController;
+use App\Http\Controllers\Api\UjianListeningController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,8 +24,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::controller(UjianController::class)->group(function() {
-    Route::get('/ujian', 'index')->name('ujian.index');
+Route::controller(UjianListeningController::class)->group(function() {
+    Route::get('/ujian-listening', 'index')->name('ujian-listening.index');
 });
 
 Route::controller(CategoryController::class)->group(function() {
