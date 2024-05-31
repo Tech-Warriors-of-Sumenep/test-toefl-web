@@ -29,7 +29,7 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="file">File</label>
-                                <input type="text" name="file" class="form-control" id="file" value="{{ $soal->file }}" placeholder="File">
+                                <input type="file" name="file" class="form-control" id="file" value="{{ $soal->file }}" placeholder="File">
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>

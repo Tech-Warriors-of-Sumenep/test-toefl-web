@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Ujian;
 use App\Models\Soal;
+use Illuminate\Support\Facades\Storage;
 
 class SoalReadingController extends Controller
 {
