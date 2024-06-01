@@ -73,12 +73,13 @@ class SoalGrammarController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function show($code)
     {
-        $soal = Soal::findOrFail($id); // Mencari data soal berdasarkan ID
-        return view('soal.show', compact('soal')); // Mengirim data soal ke view
+        $no = 0;
+        $soal = Soal::with(['jawaban'])->find($code); // Mencari data soal berdasarkan ID
+        $option = ['A','B','C','D'];
+        return view('jawaban.detail-soal', compact(['soal', 'option', 'no'])); // Mengirim data soal ke view
     }
-
     /**
      * Show the form for editing the specified resource.
      */

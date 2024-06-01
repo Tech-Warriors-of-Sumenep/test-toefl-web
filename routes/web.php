@@ -56,6 +56,27 @@ Route::middleware('auth')->group(function () {
         Route::delete('/soal-listening/{code}', 'destroy')->name('soal-listening.destroy');
     });
 
+    Route::controller(SoalReadingController::class)->group(function () {
+        Route::get('/soal-reading', 'index')->name('soal-reading.index');
+        Route::get('/soal-reading/detail-soal/{ujian}', 'detail_soal')->name('soal-reading.detail-soal');
+        Route::get('/soal-reading/create/{ujian}', 'create')->name('soal-reading.create');
+        Route::get('/soal-reading/{code}', 'edit')->name('soal-reading.edit');
+                Route::get('/soal-reading/details/{code}', 'show')->name('soal-reading.show');
+        Route::post('/soal-reading', 'store')->name('soal-reading.store');
+        Route::put('/soal-reading/{code}', 'update')->name('soal-reading.update');
+        Route::delete('/soal-reading/{code}', 'destroy')->name('soal-reading.destroy');
+    });
+    Route::controller(SoalGrammarController::class)->group(function () {
+        Route::get('/soal-grammar', 'index')->name('soal-grammar.index');
+        Route::get('/soal-grammar/detail-soal/{ujian}', 'detail_soal')->name('soal-grammar.detail-soal');
+        Route::get('/soal-grammar/create/{ujian}', 'create')->name('soal-grammar.create');
+        Route::get('/soal-grammar/{code}', 'edit')->name('soal-grammar.edit');
+                Route::get('/soal-grammar/details/{code}', 'show')->name('soal-grammar.show');
+        Route::post('/soal-grammar', 'store')->name('soal-grammar.store');
+        Route::put('/soal-grammar/{code}', 'update')->name('soal-grammar.update');
+        Route::delete('/soal-grammar/{code}', 'destroy')->name('soal-grammar.destroy');
+    });
+
     // Materi Controllers
     Route::controller(MateriGrammarController::class)->group(function () {
         Route::get('/materiGrammar', 'index')->name('materiGrammar.index');
@@ -111,24 +132,7 @@ Route::middleware('auth')->group(function () {
         Route::put('/ujian-reading/{code}', 'update')->name('ujian-reading.update');
         Route::delete('/ujian-reading/{code}', 'destroy')->name('ujian-reading.destroy');
     });
-    Route::controller(SoalReadingController::class)->group(function () {
-        Route::get('/soal-reading', 'index')->name('soal-reading.index');
-        Route::get('/soal-reading/detail-soal/{ujian}', 'detail_soal')->name('soal-reading.detail-soal');
-        Route::get('/soal-reading/create/{ujian}', 'create')->name('soal-reading.create');
-        Route::get('/soal-reading/{code}', 'edit')->name('soal-reading.edit');
-        Route::post('/soal-reading', 'store')->name('soal-reading.store');
-        Route::put('/soal-reading/{code}', 'update')->name('soal-reading.update');
-        Route::delete('/soal-reading/{code}', 'destroy')->name('soal-reading.destroy');
-    });
-    Route::controller(SoalGrammarController::class)->group(function () {
-        Route::get('/soal-grammar', 'index')->name('soal-grammar.index');
-        Route::get('/soal-grammar/detail-soal/{ujian}', 'detail_soal')->name('soal-grammar.detail-soal');
-        Route::get('/soal-grammar/create/{ujian}', 'create')->name('soal-grammar.create');
-        Route::get('/soal-grammar/{code}', 'edit')->name('soal-grammar.edit');
-        Route::post('/soal-grammar', 'store')->name('soal-grammar.store');
-        Route::put('/soal-grammar/{code}', 'update')->name('soal-grammar.update');
-        Route::delete('/soal-grammar/{code}', 'destroy')->name('soal-grammar.destroy');
-    });
+
     Route::controller(JawabanController::class)->group(function () {
         Route::get('/jawaban/{code}', 'create')->name('jawaban.create');
         Route::post('/jawaban', 'store')->name('jawaban.store');

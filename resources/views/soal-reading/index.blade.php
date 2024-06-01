@@ -50,7 +50,7 @@
                                             data-bs-toggle="dropdown"><i class="ti ti-dots-vertical"></i></button>
                                         <div class="dropdown-menu">
                                             <a class="dropdown-item"
-                                                href="{{ route('soal-grammar.detail-soal', ['ujian' => $item->id]) }}"><i
+                                                href="{{ route('soal-reading.detail-soal', ['ujian' => $item->id]) }}"><i
                                                     class="ti ti-clipboard-text me-1"></i> Detail Soal</a>
                                         </div>
                                     </div>

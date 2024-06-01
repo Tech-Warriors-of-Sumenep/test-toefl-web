@@ -63,10 +63,10 @@
                       @method('DELETE')
                       <button type="submit" class="dropdown-item"><i class="ti ti-trash me-1"></i> Delete</button>
                     </form>
-                    <a class="dropdown-item" href="{{ route('soal.create', ['ujian'=> $item->id]) }}"><i class="ti ti-clipboard-text me-1"></i> Create Soal</a>vbn 
+                    <a class="dropdown-item" href="{{ route('soal.create', ['ujian'=> $item->id]) }}"><i class="ti ti-clipboard-text me-1"></i> Create Soal</a> 
                   </div>
                 </div>
-g                </div>
+                </div>
               </td>
             </tr>
             @endforeach
