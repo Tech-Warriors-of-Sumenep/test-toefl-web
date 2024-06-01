@@ -7,6 +7,7 @@ use App\Http\Controllers\SoalController;
 use App\Http\Controllers\MateriGrammarController;
 use App\Http\Controllers\MateriListeningController; // dari HEAD
 use App\Http\Controllers\GrammerController; // dari ed454e9
+use App\Http\Controllers\JawabanController;
 use App\Http\Controllers\ReadingController; // dari ed454e9
 use App\Http\Controllers\MateriReadingController; // dari ed454e9
 use App\Http\Controllers\SoalListeningController;
@@ -32,7 +33,7 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('/dashboard', [HomeController::class, 'dashboard']);
+    Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
 
     // Soal Controllers
     Route::controller(SoalController::class)->group(function () {
@@ -49,6 +50,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/soal-listening/detail-soal/{ujian}', 'detail_soal')->name('soal-listening.detail-soal');
         Route::get('/soal-listening/create/{ujian}', 'create')->name('soal-listening.create');
         Route::get('/soal-listening/{code}', 'edit')->name('soal-listening.edit');
+        Route::get('/soal-listening/details/{code}', 'show')->name('soal-listening.show');
         Route::post('/soal-listening', 'store')->name('soal-listening.store');
         Route::put('/soal-listening/{code}', 'update')->name('soal-listening.update');
         Route::delete('/soal-listening/{code}', 'destroy')->name('soal-listening.destroy');
@@ -126,6 +128,10 @@ Route::middleware('auth')->group(function () {
         Route::post('/soal-grammar', 'store')->name('soal-grammar.store');
         Route::put('/soal-grammar/{code}', 'update')->name('soal-grammar.update');
         Route::delete('/soal-grammar/{code}', 'destroy')->name('soal-grammar.destroy');
+    });
+    Route::controller(JawabanController::class)->group(function () {
+        Route::get('/jawaban/{code}', 'create')->name('jawaban.create');
+        Route::post('/jawaban', 'store')->name('jawaban.store');
     });
 });
 
