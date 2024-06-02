@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class UjianGrammarController extends Controller
 {
-  private int $category = 2;
+  private int $category = 1;
 
     public function index(): JsonResponse {
         $ujian = Ujian::with(['category','soal'])->where('category_id', $this->category)->get();
