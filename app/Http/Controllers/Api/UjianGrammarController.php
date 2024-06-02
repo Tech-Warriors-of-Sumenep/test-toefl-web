@@ -12,7 +12,7 @@ class UjianGrammarController extends Controller
   private int $category = 1;
 
     public function index(): JsonResponse {
-        $ujian = Ujian::with(['category','soal'])->where('category_id', $this->category)->get();
+        $ujian = Ujian::with(['category','soal', 'soal.jawaban'])->where('category_id', $this->category)->get();
         return response()->json([
             "msg" => "Get Data Has Been Successfully",
             "payload" => $ujian
