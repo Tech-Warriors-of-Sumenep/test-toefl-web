@@ -8,6 +8,7 @@ use App\Http\Controllers\MateriGrammarController;
 use App\Http\Controllers\MateriListeningController; // dari HEAD
 use App\Http\Controllers\GrammerController; // dari ed454e9
 use App\Http\Controllers\JawabanController;
+use App\Http\Controllers\KunciJawabanController;
 use App\Http\Controllers\ReadingController; // dari ed454e9
 use App\Http\Controllers\MateriReadingController; // dari ed454e9
 use App\Http\Controllers\SoalListeningController;
@@ -133,9 +134,16 @@ Route::middleware('auth')->group(function () {
         Route::delete('/ujian-reading/{code}', 'destroy')->name('ujian-reading.destroy');
     });
 
+    // Jawaban Controller
     Route::controller(JawabanController::class)->group(function () {
         Route::get('/jawaban/{code}', 'create')->name('jawaban.create');
         Route::post('/jawaban', 'store')->name('jawaban.store');
+    });
+
+    // Kunci Jawaban Controller
+    Route::controller(KunciJawabanController::class)->group(function () {
+        Route::get('/kunci-jawaban/{code}', 'create')->name('kunci-jawaban.create');
+        Route::post('/kunci-jawaban', 'store')->name('kunci-jawaban.store');
     });
 });
 

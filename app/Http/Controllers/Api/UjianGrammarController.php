@@ -12,7 +12,7 @@ class UjianGrammarController extends Controller
   private int $category = 1;
 
     public function index(): JsonResponse {
-        $ujian = Ujian::with(['category','soal', 'soal.jawaban'])->where('category_id', $this->category)->get();
+        $ujian = Ujian::with(['category','soal','soal.jawaban', 'soal.kunciJawaban', 'soal.kunciJawaban.jawaban'])->where('category_id', $this->category)->get();
         return response()->json([
             "msg" => "Get Data Has Been Successfully",
             "payload" => $ujian
@@ -20,7 +20,7 @@ class UjianGrammarController extends Controller
     }
 
     public function getUjianByCode(String $code): JsonResponse {
-        $ujian = Ujian::with(['category','soal', 'soal.jawaban'])->where('uuid', $code)->first();
+        $ujian = Ujian::with(['category','soal','soal.jawaban', 'soal.kunciJawaban', 'soal.kunciJawaban.jawaban'])->where('uuid', $code)->first();
         return response()->json([
             "msg" => "Get Data Has Been Successfully",
             "payload" => $ujian
