@@ -40,7 +40,7 @@ class MateriReadingController extends Controller
         $this->validate($request, [
             'title' => 'required|min:8',
             'deskripsi' => 'required|min:8',
-            'file' => 'required|file|mimes:pdf|max:50004',
+            'file' => 'required|file|mimes:jpg,png|max:50004',
         ], [
             'file.required' => 'File harus diunggah',
             'file.file' => 'File yang diunggah harus berupa file',
@@ -86,7 +86,7 @@ class MateriReadingController extends Controller
         $this->validate($request, [
             'title' => 'required|min:8',
             'deskripsi' => 'required|min:8',
-            'file' => 'nullable|file|mimes:pdf|max:50004',
+            'file' => 'nullable|file|mimes:jpg,png|max:50004',
         ], [
             'file.file' => 'File yang diunggah harus berupa file',
             'file.mimes' => 'File yang diunggah harus berupa pdf',
