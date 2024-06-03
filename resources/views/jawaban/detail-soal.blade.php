@@ -28,6 +28,26 @@
                                     @endforeach
                                 </div>
                             </div>
+                            <hr class="my-4">
+                            @if ($soal->kunciJawaban)
+                            <h5>Kunci Jawaban</h5>
+                            <div class="d-flex flex-wrap">
+                                <div class="me-5">
+                                    <p class="text-nowrap">
+                                    {{$soal->kunciJawaban->jawaban->name}}
+                                    </p>
+                                </div>
+                            </div>                        
+                            @else
+                            <div class="d-flex flex-wrap">
+                                <div class="me-5">
+                                    <a href="{{ route('kunci-jawaban.create', ['code'=>$soal->id]) }}" class="btn btn-label-secondary waves-effect">
+                                        Create Kunci Jawaban
+                                    </a>
+                                </div>
+                            </div>                        
+                                
+                            @endif
                         </div>
                     </div>
                 </div>
