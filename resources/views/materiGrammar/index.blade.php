@@ -64,4 +64,37 @@
     </div>
     <!--/ Hoverable Table rows -->
 </div>
+<div class="container">
+        <h1>Daftar Flip Materi</h1>
+        <a href="{{ route('flipMateri.create') }}" class="btn btn-primary">Tambah Flip Materi</a>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Materi</th>
+                    <th>Deskripsi</th>
+                    <th>File</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($flipMateris as $flipMateri)
+                    <tr>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $flipMateri->materi->title }}</td>
+                        <td>{{ $flipMateri->description }}</td>
+                        <td><a href="/storage/files/flipMateri/{{ $flipMateri->file }}" target="_blank">Lihat File</a></td>
+                        <td>
+                            <a href="{{ route('flipMateri.edit', $flipMateri->uuid) }}" class="btn btn-warning">Edit</a>
+                            <form action="{{ route('flipMateri.destroy', $flipMateri->uuid) }}" method="POST" style="display:inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Hapus</button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
 @endsection

@@ -15,6 +15,7 @@ use App\Http\Controllers\SoalListeningController;
 use App\Http\Controllers\UjianListeningController; // dari ed454e9
 use App\Http\Controllers\SoalGrammarController; // dari ed454e9
 use App\Http\Controllers\SoalReadingController;
+use App\Http\Controllers\FlipMateriController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -86,6 +87,15 @@ Route::middleware('auth')->group(function () {
         Route::post('/materiGrammar', 'store')->name('materiGrammar.store');
         Route::put('/materiGrammar/{code}', 'update')->name('materiGrammar.update');
         Route::delete('/materiGrammar/{code}', 'destroy')->name('materiGrammar.destroy');
+    });
+
+    // Materi Controllers
+    Route::controller(FlipMateriController::class)->group(function () {
+        Route::get('/flipMateri/create', 'create')->name('flipMateri.create');
+        Route::get('/flipMateri/{code}', 'edit')->name('flipMateri.edit');
+        Route::post('/flipMateri', 'store')->name('flipMateri.store');
+        Route::put('/flipMateri/{code}', 'update')->name('flipMateri.update');
+        Route::delete('/flipMateri/{code}', 'destroy')->name('flipMateri.destroy');
     });
 
     Route::controller(MateriListeningController::class)->group(function () {

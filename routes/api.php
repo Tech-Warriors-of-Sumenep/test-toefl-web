@@ -49,7 +49,9 @@ Route::controller(MateriListeningController::class)->group(function() {
 
 Route::controller(MateriGrammarController::class)->group(function() {
     Route::get('/materiGrammar', 'index')->name('materi.index');
+    Route::get('/flipmateri', [MateriGrammarController::class, 'indexFlipMateri']);
     Route::get('/images/{filename}', [MateriGrammarController::class, 'show']);
+    Route::get('/imagesflip/{filename}', [MateriGrammarController::class, 'showw']);
 });
 
 Route::controller(MateriReadingController::class)->group(function() {
