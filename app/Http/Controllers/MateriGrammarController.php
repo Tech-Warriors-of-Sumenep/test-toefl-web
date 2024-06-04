@@ -38,7 +38,7 @@ class MateriGrammarController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'title' => 'required|min:8',
+            'title' => 'required|min:1',
             'deskripsi' => 'required|min:8',
             'file' => 'required|file|mimes:pdf,doc,docx,png,jpeg,jpg|max:50004',
         ], [
@@ -49,15 +49,14 @@ class MateriGrammarController extends Controller
         ]);
 
         $file_path = $request->file('file')->store('public/files/grammar');
-
-        $full_url = url('storage/' . str_replace('public/', '', $file_path));
+        $file_name = basename($file_path);
 
         Materi::create([
             'uuid' => uniqid(),
             'title' => $request->title,
             'description' => $request->deskripsi,
             'category_id' => 1, // Menyesuaikan dengan nilai category_id yang Anda sebutkan (1)
-            'file' => $full_url, // Memastikan path file yang disimpan adalah yang benar
+            'file' => $file_name, // Memastikan path file yang disimpan adalah yang benar
         ]);
 
         return redirect()->route('materiGrammar.index')->with(['success' => 'Data Berhasil Disimpan!']);
@@ -85,7 +84,7 @@ class MateriGrammarController extends Controller
         $materi = Materi::with(['category'])->where('uuid', $code)->first();
 
         $this->validate($request, [
-            'title' => 'required|min:8',
+            'title' => 'required|min:1',
             'deskripsi' => 'required|min:8',
             'file' => 'nullable|file|mimes:pdf,doc,docx|max:50004',
         ], [

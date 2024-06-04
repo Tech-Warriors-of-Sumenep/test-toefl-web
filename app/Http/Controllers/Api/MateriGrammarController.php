@@ -24,13 +24,26 @@ class MateriGrammarController extends Controller
         ]);
     }
 
+    public function show($filename)
+    {
+        $filePath = 'files/grammar/' . $filename;
+
+        if (Storage::disk('public')->exists($filePath)) {
+            $file = Storage::disk('public')->get($filePath);
+            $type = Storage::disk('public')->mimeType($filePath);
+
+            return response($file, 200)->header('Content-Type', $type);
+        } else {
+            return response()->json(['error' => 'File not found.'], 404);
+        }
+    }
     /**
      * Menyimpan resource yang baru dibuat.
      */
-   
+
 
     /**
      * Menampilkan resource yang ditentukan.
      */
-   
+
 }
