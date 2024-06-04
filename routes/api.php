@@ -54,6 +54,7 @@ Route::controller(MateriGrammarController::class)->group(function() {
 
 Route::controller(MateriReadingController::class)->group(function() {
     Route::get('/materiReading', 'index')->name('materiReading.index');
+    Route::get('/images/{filename}', [MateriGrammarController::class, 'show']);
 });
 
 
