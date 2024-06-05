@@ -76,7 +76,7 @@ class SoalListeningController extends Controller
     public function show($code)
     {
         $no = 0;
-        $soal = Soal::with(['jawaban'])->find($code); // Mencari data soal berdasarkan ID
+        $soal = Soal::with(['jawaban','kunciJawaban','kunciJawaban.jawaban'])->find($code); // Mencari data soal berdasarkan ID
         $option = ['A','B','C','D'];
         return view('jawaban.detail-soal', compact(['soal', 'option', 'no'])); // Mengirim data soal ke view
     }

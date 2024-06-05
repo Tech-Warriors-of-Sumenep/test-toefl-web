@@ -14,8 +14,8 @@ class MateriReadingController extends Controller
      */
     public function index()
     {
-        $no = 2;
         $materi = Materi::with(['category'])->where('category_id', 2)->get();
+        $no = 2;
         return view('materiReading.index', compact([
             'materi', 'no'
         ]));
@@ -38,25 +38,25 @@ class MateriReadingController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'title' => 'required|min:8',
+            'title' => 'required|min:1',
             'deskripsi' => 'required|min:8',
-            // 'file' => 'required|file|mimes:png,jpeg|max:50004',
-        // ], [
-        //     'file.required' => 'File harus diunggah',
-        //     'file.file' => 'File yang diunggah harus berupa file',
-        //     'file.mimes' => 'File yang diunggah harus berupa JPEG atau PNG',
-        //     'file.max' => 'Ukuran file maksimal 2 MB',
-        // ]);
+            'file' => 'required|file|mimes:pdf,doc,docx,png,jpeg,jpg|max:50004',
+        ], [
+            'file.required' => 'File harus diunggah',
+            'file.file' => 'File yang diunggah harus berupa file',
+            'file.mimes' => 'File yang diunggah harus berupa PDF, DOC, atau DOCX',
+            'file.max' => 'Ukuran file maksimal 2 MB',
         ]);
 
-        // $file_path = $request->file('file')->store('public/files/reading');
+        $file_path = $request->file('file')->store('public/files/reading');
+        $file_name = basename($file_path);
 
         Materi::create([
             'uuid' => uniqid(),
             'title' => $request->title,
             'description' => $request->deskripsi,
             'category_id' => 2,
-            // 'file' => str_replace('public/', '', $file_path), 
+            'file' => $file_name,
         ]);
 
         return redirect()->route('materiReading.index')->with(['success' => 'Data Berhasil Disimpan!']);
@@ -84,27 +84,26 @@ class MateriReadingController extends Controller
         $materi = Materi::with(['category'])->where('uuid', $code)->first();
 
         $this->validate($request, [
-            'title' => 'required|min:8',
+            'title' => 'required|min:1',
             'deskripsi' => 'required|min:8',
-            // 'file' => 'nullable|file|mimes:png,jpeg|max:50004',
-        // ], [
-        //     'file.file' => 'File yang diunggah harus berupa file',
-        //     'file.mimes' => 'File yang diunggah harus berupa JPEG atau PNG',
-        //     'file.max' => 'Ukuran file maksimal 2 MB',
-        // ]);
+            'file' => 'nullable|file|mimes:pdf,doc,docx|max:50004',
+        ], [
+            'file.file' => 'File yang diunggah harus berupa file',
+            'file.mimes' => 'File yang diunggah harus berupa PDF, DOC, atau DOCX',
+            'file.max' => 'Ukuran file maksimal 2 MB',
         ]);
 
-        // if ($request->hasFile('file')) {
-        //     // Hapus file lama
-        //     Storage::delete('public/files/reading/' . $materi->file);
+        if ($request->hasFile('file')) {
+            // Hapus file lama
+            Storage::delete('public/files/reading/' . $materi->file);
 
-        //     // Upload file baru
-        //     $file_path = $request->file('file')->store('public/files/grammar');
+            // Upload file baru
+            $file_path = $request->file('file')->store('public/files/reading');
 
-        //     $materi->update([
-        //         'file' => str_replace('public/', '', $file_path), // Memastikan path file yang disimpan adalah yang benar
-        //     ]);
-        // }
+            $materi->update([
+                'file' => str_replace('public/', '', $file_path),
+            ]);
+        }
 
         $materi->update([
             'title' => $request->title,
@@ -114,17 +113,22 @@ class MateriReadingController extends Controller
         return redirect()->route('materiReading.index')->with(['success' => 'Data Berhasil Diupdate!']);
     }
 
+    /**
+     * Remove the specified resource from storage.
+     */
     public function destroy(string $code)
     {
         $materi = Materi::where('uuid', $code)->first();
-    
+
         if (!$materi) {
             return redirect()->route('materiReading.index')->with(['error' => 'Data tidak ditemukan!']);
         }
 
+        // Hapus file
+        Storage::delete('public/' . $materi->file);
+
         $materi->delete();
-    
+
         return redirect()->route('materiReading.index')->with(['success' => 'Data Berhasil Dihapus!']);
     }
-    
 }

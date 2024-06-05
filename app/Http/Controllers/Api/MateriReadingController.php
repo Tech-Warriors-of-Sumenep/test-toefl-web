@@ -17,4 +17,17 @@ class materiReadingController extends Controller
             'payload' => $materi
         ]);
     }
+    public function show($filename)
+    {
+        $filePath = 'files/reading/' . $filename;
+
+        if (Storage::disk('public')->exists($filePath)) {
+            $file = Storage::disk('public')->get($filePath);
+            $type = Storage::disk('public')->mimeType($filePath);
+
+            return response($file, 200)->header('Content-Type', $type);
+        } else {
+            return response()->json(['error' => 'File not found.'], 404);
+        }
+    }
 }

@@ -10,12 +10,14 @@ use App\Http\Controllers\ContohSoalController;
 use App\Http\Controllers\GrammerController; // dari ed454e9
 use App\Http\Controllers\JawabanController;
 use App\Http\Controllers\ContohJawabanController;
+use App\Http\Controllers\KunciJawabanController;
 use App\Http\Controllers\ReadingController; // dari ed454e9
 use App\Http\Controllers\MateriReadingController; // dari ed454e9
 use App\Http\Controllers\SoalListeningController;
 use App\Http\Controllers\UjianListeningController; // dari ed454e9
 use App\Http\Controllers\SoalGrammarController; // dari ed454e9
 use App\Http\Controllers\SoalReadingController;
+use App\Http\Controllers\FlipMateriController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -89,6 +91,15 @@ Route::middleware('auth')->group(function () {
         Route::delete('/materiGrammar/{code}', 'destroy')->name('materiGrammar.destroy');
     });
 
+    // Materi Controllers
+    Route::controller(FlipMateriController::class)->group(function () {
+        Route::get('/flipMateri/create', 'create')->name('flipMateri.create');
+        Route::get('/flipMateri/{code}', 'edit')->name('flipMateri.edit');
+        Route::post('/flipMateri', 'store')->name('flipMateri.store');
+        Route::put('/flipMateri/{code}', 'update')->name('flipMateri.update');
+        Route::delete('/flipMateri/{code}', 'destroy')->name('flipMateri.destroy');
+    });
+
     Route::controller(MateriListeningController::class)->group(function () {
         Route::get('/materiListening', 'index')->name('materiListening.index');
         Route::get('/materiListening/create', 'create')->name('materiListening.create');
@@ -137,6 +148,7 @@ Route::middleware('auth')->group(function () {
         Route::delete('/ujian-reading/{code}', 'destroy')->name('ujian-reading.destroy');
     });
 
+    // Jawaban Controller
     Route::controller(JawabanController::class)->group(function () {
         Route::get('/jawaban/{code}', 'create')->name('jawaban.create');
         Route::post('/jawaban', 'store')->name('jawaban.store');
@@ -157,6 +169,11 @@ Route::middleware('auth')->group(function () {
     Route::controller(ContohJawabanController::class)->group(function () {
         Route::get('/contohjawaban/{code}', 'create')->name('contohjawaban.create');
         Route::post('/contohjawaban', 'store')->name('contohjawaban.store');
+
+    // Kunci Jawaban Controller
+    Route::controller(KunciJawabanController::class)->group(function () {
+        Route::get('/kunci-jawaban/{code}', 'create')->name('kunci-jawaban.create');
+        Route::post('/kunci-jawaban', 'store')->name('kunci-jawaban.store');
     });
 });
 

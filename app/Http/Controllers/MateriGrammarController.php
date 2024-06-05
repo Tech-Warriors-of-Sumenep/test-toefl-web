@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Materi;
+use App\Models\FlipMateri;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -13,13 +14,12 @@ class MateriGrammarController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        $materi = Materi::with(['category'])->where('category_id', 1)->get();
-        $no = 1;
-        return view('materiGrammar.index', compact([
-            'materi', 'no'
-        ]));
-    }
+{
+    $materi = Materi::with(['category'])->where('category_id', 1)->get();
+    $flipMateris = FlipMateri::with(['materi'])->get();
+    $no = 1;
+    return view('materiGrammar.index', compact(['materi', 'flipMateris', 'no']));
+}
 
     /**
      * Show the form for creating a new resource.
@@ -51,13 +51,15 @@ class MateriGrammarController extends Controller
         $file_path = $request->file('file')->store('public/files/grammar');
 
         $full_url = url('storage/' . str_replace('public/', '', $file_path));
+        $file_name = basename($file_path);
+        //untuk url diatas selalu ubah file .env dibawah sesuaikan dengan ip komputer
 
         Materi::create([
             'uuid' => uniqid(),
             'title' => $request->title,
             'description' => $request->deskripsi,
             'category_id' => 1, // Menyesuaikan dengan nilai category_id yang Anda sebutkan (1)
-            'file' => $full_url, // Memastikan path file yang disimpan adalah yang benar
+            'file' => $file_name, // Memastikan path file yang disimpan adalah yang benar
         ]);
 
         return redirect()->route('materiGrammar.index')->with(['success' => 'Data Berhasil Disimpan!']);
@@ -101,8 +103,9 @@ class MateriGrammarController extends Controller
             // Upload file baru
             $file_path = $request->file('file')->store('public/files/grammar');
 
+            $file_name = basename($file_path);
             $materi->update([
-                'file' => str_replace('public/', '', $file_path), // Memastikan path file yang disimpan adalah yang benar
+                'file' => $file_name, // Memastikan path file yang disimpan adalah yang benar
             ]);
         }
 
