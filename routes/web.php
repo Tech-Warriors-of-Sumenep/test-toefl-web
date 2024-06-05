@@ -6,8 +6,10 @@ use App\Http\Controllers\UjianController;
 use App\Http\Controllers\SoalController;
 use App\Http\Controllers\MateriGrammarController;
 use App\Http\Controllers\MateriListeningController; // dari HEAD
+use App\Http\Controllers\ContohSoalController;
 use App\Http\Controllers\GrammerController; // dari ed454e9
 use App\Http\Controllers\JawabanController;
+use App\Http\Controllers\ContohJawabanController;
 use App\Http\Controllers\ReadingController; // dari ed454e9
 use App\Http\Controllers\MateriReadingController; // dari ed454e9
 use App\Http\Controllers\SoalListeningController;
@@ -71,7 +73,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/soal-grammar/detail-soal/{ujian}', 'detail_soal')->name('soal-grammar.detail-soal');
         Route::get('/soal-grammar/create/{ujian}', 'create')->name('soal-grammar.create');
         Route::get('/soal-grammar/{code}', 'edit')->name('soal-grammar.edit');
-                Route::get('/soal-grammar/details/{code}', 'show')->name('soal-grammar.show');
+        Route::get('/soal-grammar/details/{code}', 'show')->name('soal-grammar.show');
         Route::post('/soal-grammar', 'store')->name('soal-grammar.store');
         Route::put('/soal-grammar/{code}', 'update')->name('soal-grammar.update');
         Route::delete('/soal-grammar/{code}', 'destroy')->name('soal-grammar.destroy');
@@ -95,6 +97,8 @@ Route::middleware('auth')->group(function () {
         Route::put('/materiListening/{code}', 'update')->name('materiListening.update');
         Route::delete('/materiListening/{code}', 'destroy')->name('materiListening.destroy');
     });
+
+
 
     Route::controller(MateriReadingController::class)->group(function () {
         Route::get('/materiReading', 'index')->name('materiReading.index');
@@ -136,6 +140,23 @@ Route::middleware('auth')->group(function () {
     Route::controller(JawabanController::class)->group(function () {
         Route::get('/jawaban/{code}', 'create')->name('jawaban.create');
         Route::post('/jawaban', 'store')->name('jawaban.store');
+    });
+
+    //contoh soal
+    Route::controller(ContohSoalController::class)->group(function () {
+        Route::get('/contohsoal-listening', 'index')->name('contohsoal-listening.index');
+        Route::get('/contohsoal-listening/detail-soal/{materi}', 'detail_soal')->name('contohsoal-listening.detail-soal');
+        Route::get('/contohsoal-listening/create/{materi}', 'create')->name('contohsoal-listening.create');
+        Route::get('/contohsoal-listening/{code}', 'edit')->name('contohsoal-listening.edit');
+        Route::get('/contohsoal-listening/details/{code}', 'show')->name('contohsoal-listening.show');
+        Route::post('/contohsoal-listening', 'store')->name('contohsoal-listening.store');
+        Route::put('/contohsoal-listening/{code}', 'update')->name('contohsoal-listening.update');
+        Route::delete('/contohsoal-listening/{code}', 'destroy')->name('contohsoal-listening.destroy');
+    });
+
+    Route::controller(ContohJawabanController::class)->group(function () {
+        Route::get('/contohjawaban/{code}', 'create')->name('contohjawaban.create');
+        Route::post('/contohjawaban', 'store')->name('contohjawaban.store');
     });
 });
 

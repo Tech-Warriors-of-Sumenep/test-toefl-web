@@ -40,12 +40,12 @@ class MateriListeningController extends Controller
         $this->validate($request, [
             'title' => 'required|min:8',
             'deskripsi' => 'required|min:8',
-            'file' => 'required|file|mimes:mp3,mp4|max:10000',
+            'file' => 'required|file|mimes:mp3,mp4|max:100000',
         ], [
             'file.required' => 'File harus diunggah',
             'file.file' => 'File yang diunggah harus berupa file',
             'file.mimes' => 'File yang diunggah harus berupa mp3 dan mp4',
-            'file.max' => 'Ukuran file maksimal 10 MB',
+            'file.max' => 'Ukuran file maksimal 100 MB',
         ]);
 
         $file_path = $request->file('file')->store('public/files/listening');

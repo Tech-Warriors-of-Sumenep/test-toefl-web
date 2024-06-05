@@ -61,6 +61,7 @@
                             @method('DELETE')
                             <button type="submit" class="dropdown-item"><i class="ti ti-trash me-1"></i> Delete</button>
                         </form>
+                        <a class="dropdown-item" href="{{ route('contohsoal-listening.create', ['materi'=> $materi1->id]) }}"><i class="ti ti-clipboard-text me-1"></i> Create Contoh Soal</a>
                     </div>
                 </div>
 
