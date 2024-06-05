@@ -1,6 +1,4 @@
-@extends('layouts.layout-dashboard')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 <div class="container-xxl flex-grow-1 container-p-y">
     <h4 class="py-3 mb-4">
         Materi listening
@@ -12,7 +10,7 @@
                 <h5 class="card-header">Data Materi</h5>
             </div>
             <div class="col-lg-6 p-4" style="display: flex; height: auto; align-items: center; justify-content:end">
-                <a href="{{ route('materiListening.create') }}" class="">
+                <a href="<?php echo e(route('materiListening.create')); ?>" class="">
                     <button type="button" class="btn rounded-pill btn-success waves-effect waves-light">Create</button>
                 </a>
             </div>
@@ -30,23 +28,26 @@
             </tr>
           </thead>
           <tbody class="table-border-bottom-0">
-            @foreach ($materi as $materi1)
+            <?php $__currentLoopData = $materi; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $materi1): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <tr>
               <td>
-                {{ $loop->iteration }}
+                <?php echo e($loop->iteration); ?>
+
               </td>
               <td>
-                {{ $materi1->title }}
+                <?php echo e($materi1->title); ?>
+
               </td>
               <td>
-                {{ $materi1->description }}
+                <?php echo e($materi1->description); ?>
+
               </td>
               <td>
-                <a href="{{ $materi1->file }}" target="_blank">{{ $materi1->file }}</a>
+                <a href="<?php echo e($materi1->file); ?>" target="_blank"><?php echo e($materi1->file); ?></a>
             </td>
             <td>
                 <audio controls>
-                    <source src="{{ $materi1->file }}" type="audio/mpeg">
+                    <source src="<?php echo e($materi1->file); ?>" type="audio/mpeg">
                     Your browser does not support the audio element.
                 </audio>
             </td>
@@ -55,23 +56,24 @@
                 <div class="dropdown">
                     <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="ti ti-dots-vertical"></i></button>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="{{ route('materiListening.edit', ['code' => $materi1->uuid, 'category_id' => $materi1->category->id]) }}"><i class="ti ti-pencil me-1"></i> Edit</a>
-                        <form action="{{ route('materiListening.destroy', $materi1->uuid) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
+                        <a class="dropdown-item" href="<?php echo e(route('materiListening.edit', ['code' => $materi1->uuid, 'category_id' => $materi1->category->id])); ?>"><i class="ti ti-pencil me-1"></i> Edit</a>
+                        <form action="<?php echo e(route('materiListening.destroy', $materi1->uuid)); ?>" method="POST">
+                            <?php echo csrf_field(); ?>
+                            <?php echo method_field('DELETE'); ?>
                             <button type="submit" class="dropdown-item"><i class="ti ti-trash me-1"></i> Delete</button>
                         </form>
-                        <a class="dropdown-item" href="{{ route('contohsoal-listening.create', ['materi'=> $materi1->id]) }}"><i class="ti ti-clipboard-text me-1"></i> Create Contoh Soal</a>
                     </div>
                 </div>
 
               </td>
             </tr>
-            @endforeach
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
           </tbody>
         </table>
       </div>
     </div>
     <!--/ Hoverable Table rows -->
 </div>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.layout-dashboard', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\sumenepteam\test-toefl-web\resources\views/materiListening/index.blade.php ENDPATH**/ ?>
