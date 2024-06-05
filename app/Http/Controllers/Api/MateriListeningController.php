@@ -16,7 +16,7 @@ class MateriListeningController extends Controller
      */
     public function index(): JsonResponse
     {
-        $materi = Materi::with(['category'])->where('category_id', 3)->get();
+        $materi = Materi::with(['category', 'contohSoal.contohJawaban'])->where('category_id', 3)->get();
         return response()->json([
             "msg" => "Data berhasil diambil",
             'payload' => $materi

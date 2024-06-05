@@ -17,8 +17,8 @@ class JawabanContohSoals extends Model
         'id'
     ];
 
-    // Many To One
-    public function soal(): BelongsTo {
+    public function contohSoal(): BelongsTo
+    {
         return $this->belongsTo(ContohSoal::class);
     }
 }

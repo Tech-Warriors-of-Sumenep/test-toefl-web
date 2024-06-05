@@ -47,9 +47,9 @@
                                         <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
                                             data-bs-toggle="dropdown"><i class="ti ti-dots-vertical"></i></button>
                                         <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="<?php echo e(route('soal-listening.edit', $item->id)); ?>"><i
+                                            <a class="dropdown-item" href="<?php echo e(route('contohsoal-listening.edit', $item->id)); ?>"><i
                                                     class="ti ti-pencil me-1"></i> Edit</a>
-                                            <form action="<?php echo e(route('soal-listening.destroy', $item->id)); ?>" method="POST">
+                                            <form action="<?php echo e(route('contohsoal-listening.destroy', $item->id)); ?>" method="POST">
                                                 <?php echo csrf_field(); ?>
                                                 <?php echo method_field('DELETE'); ?>
                                                 <button type="submit" class="dropdown-item"><i

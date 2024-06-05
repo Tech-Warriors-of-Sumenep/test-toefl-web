@@ -11,7 +11,7 @@
                     <div class="card-body">
                         <form action="{{ route('contohjawaban.store') }}" method="POST">
                             @csrf
-                            <input type="hidden" name="contoh_soal_id" value="{{ $contohsoal }}">
+                            <input type="hidden" name="soal" value="{{ $contohsoal }}">
                             <div class="mb-3">
                                 <label class="form-label" for="jawabancontohsoal">jawaban contoh soal 1</label>
                                 <input type="jawabancontohsoal" name="jawabancontohsoal[]" class="form-control" id="jawabancontohsoal">

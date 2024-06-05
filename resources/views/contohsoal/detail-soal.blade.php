@@ -46,9 +46,9 @@
                                         <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
                                             data-bs-toggle="dropdown"><i class="ti ti-dots-vertical"></i></button>
                                         <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="{{ route('soal-listening.edit', $item->id) }}"><i
+                                            <a class="dropdown-item" href="{{ route('contohsoal-listening.edit', $item->id) }}"><i
                                                     class="ti ti-pencil me-1"></i> Edit</a>
-                                            <form action="{{ route('soal-listening.destroy', $item->id) }}" method="POST">
+                                            <form action="{{ route('contohsoal-listening.destroy', $item->id) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="dropdown-item"><i

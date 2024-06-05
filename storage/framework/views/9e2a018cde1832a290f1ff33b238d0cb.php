@@ -75,6 +75,7 @@
     <link rel="stylesheet" href="<?php echo e(asset('')); ?>vuexy-admin/assets/vendor/fonts/fontawesome.css" />
     <link rel="stylesheet" href="<?php echo e(asset('')); ?>vuexy-admin/assets/vendor/fonts/tabler-icons.css" />
     <link rel="stylesheet" href="<?php echo e(asset('')); ?>vuexy-admin/assets/vendor/fonts/flag-icons.css" />
+    <link rel="stylesheet" href="<?php echo e(asset('')); ?>vuexy-admin/assets/vendor/libs/bootstrap-select/bootstrap-select.css">
 
     <!-- Core CSS -->
     <link
@@ -195,6 +196,7 @@
     <script src="<?php echo e(asset('')); ?>vuexy-admin/assets/vendor/libs/i18n/i18n.js"></script>
     <script src="<?php echo e(asset('')); ?>vuexy-admin/assets/vendor/libs/typeahead-js/typeahead.js"></script>
     <script src="<?php echo e(asset('')); ?>vuexy-admin/assets/vendor/js/menu.js"></script>
+    <script src="<?php echo e(asset('')); ?>vuexy-admin/assets/vendor/libs/bootstrap-select/bootstrap-select.js"></script>
 
     <!-- endbuild -->
 

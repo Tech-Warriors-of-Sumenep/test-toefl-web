@@ -76,7 +76,7 @@ class ContohSoalController extends Controller
     public function show($code)
     {
         $no = 0;
-        $soal = ContohSoal::with(['jawaban'])->find($code); // Mencari data soal berdasarkan ID
+        $soal = ContohSoal::with(['contohjawaban'])->find($code); // Mencari data soal berdasarkan ID
         $option = ['A','B','C','D'];
         return view('contohjawaban.detail-soal', compact(['soal', 'option', 'no'])); // Mengirim data soal ke view
     }
@@ -86,7 +86,7 @@ class ContohSoalController extends Controller
      */
     public function edit($id)
     {
-        $soal = Soal::findOrFail($id); // Mencari data soal berdasarkan ID
+        $soal = ContohSoal::findOrFail($id); // Mencari data soal berdasarkan ID
         $materis = Materi::all(); // Mengambil semua data materi
         return view('contohsoal.edit', compact('soal', 'materis')); // Mengirim data soal dan materi ke view
     }
@@ -134,7 +134,7 @@ class ContohSoalController extends Controller
      */
     public function destroy($id)
     {
-        $soal = Soal::findOrFail($id);
+        $soal = ContohSoal::findOrFail($id);
 
         if ($soal->file) {
             //delete old file

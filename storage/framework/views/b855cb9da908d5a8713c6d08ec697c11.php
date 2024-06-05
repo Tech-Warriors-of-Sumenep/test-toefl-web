@@ -9,7 +9,7 @@
                     <div class="card-body">
                         <form action="<?php echo e(route('contohjawaban.store')); ?>" method="POST">
                             <?php echo csrf_field(); ?>
-                            <input type="hidden" name="contoh_soal_id" value="<?php echo e($contohsoal); ?>">
+                            <input type="hidden" name="soal" value="<?php echo e($contohsoal); ?>">
                             <div class="mb-3">
                                 <label class="form-label" for="jawabancontohsoal">jawaban contoh soal 1</label>
                                 <input type="jawabancontohsoal" name="jawabancontohsoal[]" class="form-control" id="jawabancontohsoal">

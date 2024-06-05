@@ -16,13 +16,13 @@ class ContohSoal extends Model
         'id'
     ];
 
-    // One To Many
-    public function jawaban(): HasMany {
-        return $this->hasMany(JawabanContohSoals::class);
+    public function materi(): BelongsTo
+    {
+        return $this->belongsTo(Materi::class);
     }
 
-    // Many To One
-    public function Materi(): BelongsTo {
-        return $this->belongsTo(Materi::class);
+    public function contohJawaban(): HasMany
+    {
+        return $this->hasMany(JawabanContohSoals::class);
     }
 }

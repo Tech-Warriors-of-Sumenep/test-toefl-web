@@ -166,9 +166,11 @@ Route::middleware('auth')->group(function () {
         Route::delete('/contohsoal-listening/{code}', 'destroy')->name('contohsoal-listening.destroy');
     });
 
+    //contohsoaljawaban
     Route::controller(ContohJawabanController::class)->group(function () {
         Route::get('/contohjawaban/{code}', 'create')->name('contohjawaban.create');
         Route::post('/contohjawaban', 'store')->name('contohjawaban.store');
+    });
 
     // Kunci Jawaban Controller
     Route::controller(KunciJawabanController::class)->group(function () {
