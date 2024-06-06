@@ -25,4 +25,6 @@ class ContohSoal extends Model
     {
         return $this->hasMany(JawabanContohSoals::class);
     }
+
+
 }

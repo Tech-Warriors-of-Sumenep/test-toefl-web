@@ -21,7 +21,7 @@
                             <h5>Jawaban</h5>
                             <div class="d-flex flex-wrap">
                                 <div class="me-5">
-                                    @foreach ($soal->jawaban as $item)
+                                    @foreach ($soal->contohjawaban as $item)
                                     <p class="text-nowrap"><span class="me-2 mt-n2">{{$option[$no++]}}.</span>
                                     {{$item->name}}
                                     </p>

@@ -20,7 +20,7 @@
                             <h5>Jawaban</h5>
                             <div class="d-flex flex-wrap">
                                 <div class="me-5">
-                                    <?php $__currentLoopData = $soal->jawaban; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <?php $__currentLoopData = $soal->contohjawaban; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <p class="text-nowrap"><span class="me-2 mt-n2"><?php echo e($option[$no++]); ?>.</span>
                                     <?php echo e($item->name); ?>
 
@@ -38,4 +38,5 @@
 
     </div>
 <?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('layouts.layout-dashboard', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\PENS\semester 4\data_end\test-toefl-web\resources\views/contohjawaban/detail-soal.blade.php ENDPATH**/ ?>
