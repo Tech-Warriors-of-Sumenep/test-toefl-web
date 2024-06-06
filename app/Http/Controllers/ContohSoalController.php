@@ -60,7 +60,7 @@ class ContohSoalController extends Controller
             ]);
         } else {
             // Create a new record without a file
-            Soal::create([
+            ContohSoal::create([
                 'materi_id' => $request->materi,
                 'soal' => $request->soal,
             ]);

@@ -4,14 +4,14 @@
             <div class="col-xl">
                 <div class="card mb-4">
                     <div class="card-header d-flex justify-content-between align-items-center">
-                        <h5 class="mb-0">Create Contoh Soal</h5>
+                        <h5 class="mb-0">Create Soal Ujian</h5>
                     </div>
                     <div class="card-body">
                         <form action="<?php echo e(route('contohsoal-listening.store')); ?>" method="POST" enctype="multipart/form-data">
                             <?php echo csrf_field(); ?>
                             <div class="mb-3">
                                 <label class="form-label" for="soal">Soal</label>
-                                <textarea id="soal" name="soal" class="form-control" placeholder="Soal materi"></textarea>
+                                <textarea id="soal" name="soal" class="form-control" placeholder="Soal Ujian"></textarea>
                                 <?php $__errorArgs = ['soal'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
