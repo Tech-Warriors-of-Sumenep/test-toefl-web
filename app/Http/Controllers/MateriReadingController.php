@@ -48,15 +48,15 @@ class MateriReadingController extends Controller
             'file.max' => 'Ukuran file maksimal 2 MB',
         ]);
 
-        $file_path = $request->file('file')->store('public/files/reading');
-        $file_name = basename($file_path);
+        $file_path = $request->file('file');
+        $file_path->storeAs('public/files/reading', $file_path->hashName());
 
         Materi::create([
             'uuid' => uniqid(),
             'title' => $request->title,
             'description' => $request->deskripsi,
             'category_id' => 2,
-            'file' => $file_name,
+            'file' => $file_path->hashName(),
         ]);
 
         return redirect()->route('materiReading.index')->with(['success' => 'Data Berhasil Disimpan!']);
@@ -71,7 +71,7 @@ class MateriReadingController extends Controller
         $materi = Materi::with(['category'])->where('uuid', $code)->first();
         return view('materiReading.edit', compact(
             [
-                'categories', 'materi'
+                'categories', 'materi',
             ]
         ));
     }
@@ -86,7 +86,7 @@ class MateriReadingController extends Controller
         $this->validate($request, [
             'title' => 'required|min:1',
             'deskripsi' => 'required|min:8',
-            'file' => 'nullable|file|mimes:pdf,doc,docx|max:50004',
+            'file' => 'nullable|file|mimes:pdf,doc,docx,png,jpeg,jpg|max:50004',
         ], [
             'file.file' => 'File yang diunggah harus berupa file',
             'file.mimes' => 'File yang diunggah harus berupa PDF, DOC, atau DOCX',
@@ -98,19 +98,22 @@ class MateriReadingController extends Controller
             Storage::delete('public/files/reading/' . $materi->file);
 
             // Upload file baru
-            $file_path = $request->file('file')->store('public/files/reading');
+            $file_path = $request->file('file');
+            $file_path->storeAs('public/files/reading', $file_path->hashName());
 
             $materi->update([
-                'file' => str_replace('public/', '', $file_path),
+                'title' => $request->title,
+                'description' => $request->deskripsi,
+                'file' => $file_path->hashName()
             ]);
+            return redirect()->route('materiReading.index')->with(['success' => 'Data Berhasil Diupdate!']);
+        } else {
+            $materi->update([
+                'title' => $request->title,
+                'description' => $request->deskripsi,
+            ]);
+            return redirect()->route('materiReading.index')->with(['success' => 'Data Berhasil Diupdate!']);
         }
-
-        $materi->update([
-            'title' => $request->title,
-            'description' => $request->deskripsi,
-        ]);
-
-        return redirect()->route('materiReading.index')->with(['success' => 'Data Berhasil Diupdate!']);
     }
 
     /**
