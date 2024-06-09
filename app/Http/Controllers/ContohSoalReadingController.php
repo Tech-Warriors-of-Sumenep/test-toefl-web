@@ -7,30 +7,33 @@ use App\Models\Materi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class ContohSoalController extends Controller
+class ContohSoalReadingController extends Controller
 {
-    private int $category = 3;
+    /**
+     * Display a listing of the resource.
+     */
+    private int $category = 2;
     public function index()
     {
         $no = 1;
         $materi = Materi::with(['category'])
             ->where('category_id', $this->category)
             ->get(); // Mengambil semua materi
-        return view('contohsoal.index', compact(['materi', 'no'])); // Mengirim data materi ke view
+        return view('contohSoalReading.index', compact(['materi', 'no']));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create(string $materi)
+    public function create($materi)
     {
-        return view('contohsoal.create', compact(['materi'])); // Mengirim data materi ke view
+        return view('contohSoalReading.create', compact(['materi']));
     }
 
     public function detail_soal(string $materi)
     {
         $contohsoals = ContohSoal::with(['materi'])->where('materi_id', $materi)->get();
-        return view('contohsoal.detail-soal', compact(['contohsoals'])); // Mengirim data materi ke view
+        return view('contohSoalReading.detail-soal', compact(['contohsoals'])); // Mengirim data materi ke view
     }
 
     /**
@@ -67,34 +70,32 @@ class ContohSoalController extends Controller
         }
 
         // Redirect back to the index route with a success message
-        return redirect()->route('contohsoal-listening.index')->with('success', 'Soal berhasil disimpan');
+        return redirect()->route('contohsoal-reading.index')->with('success', 'Soal berhasil disimpan');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show($code)
+    public function show(string $code)
     {
         $no = 0;
         $soal = ContohSoal::with(['contohjawaban'])->find($code); // Mencari data soal berdasarkan ID
         $option = ['A', 'B', 'C', 'D'];
-        return view('contohjawaban.detail-soal', compact(['soal', 'option', 'no'])); // Mengirim data soal ke view
+        return view('contohJawabanReading.detail-soal', compact(['soal', 'option', 'no']));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit($id)
+    public function edit(string $id)
     {
-        $soal = ContohSoal::findOrFail($id); // Mencari data soal berdasarkan ID
-        $materis = Materi::all(); // Mengambil semua data materi
-        return view('contohsoal.edit', compact('soal', 'materis')); // Mengirim data soal dan materi ke view
+        //
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, string $id)
     {
         $this->validate($request, [
             'materi_id' => 'required',
@@ -126,13 +127,13 @@ class ContohSoalController extends Controller
             ]);
         }
 
-        return redirect()->route('contohsoal-listening.index')->with('success', 'Soal berhasil diupdate');
+        return redirect()->route('contohsoal-reading.index')->with('success', 'Soal berhasil diupdate');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($id)
+    public function destroy(string $id)
     {
         $soal = ContohSoal::findOrFail($id);
 
@@ -142,6 +143,6 @@ class ContohSoalController extends Controller
         }
         $soal->delete();
 
-        return redirect()->route('contohsoal-listening.index')->with('success', 'Soal berhasil dihapus');
+        return redirect()->route('contohsoal-reading.index')->with('success', 'Soal berhasil dihapus');
     }
 }

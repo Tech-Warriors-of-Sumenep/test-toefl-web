@@ -3,18 +3,13 @@
 @section('content')
     <div class="container-xxl flex-grow-1 container-p-y">
         <h4 class="py-3 mb-4">
-            Materi
+            Soal
         </h4>
         <!-- Hoverable Table rows -->
         <div class="card">
             <div class="row g-0">
                 <div class="col-lg-6 p-4">
-                    <h5 class="card-header">Data Materi Reading</h5>
-                </div>
-                <div class="col-lg-6 p-4" style="display: flex; height: auto; align-items: center; justify-content:end">
-                    <a href="{{ route('materiReading.create') }}" class="">
-                        <button type="button" class="btn rounded-pill btn-success waves-effect waves-light">Create</button>
-                    </a>
+                    <h5 class="card-header">Data contoh Soal</h5>
                 </div>
             </div>
             <div class="table-responsive text-nowrap">
@@ -22,22 +17,22 @@
                     <thead>
                         <tr>
                             <th>No.</th>
-                            <th>Title</th>
-                            <th>Description</th>
+                            <th>Ujian</th>
+                            <th>Soal</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                        @foreach ($materi as $materi1)
+                        @foreach ($contohsoals as $item)
                             <tr>
                                 <td>
                                     {{ $loop->iteration }}
                                 </td>
                                 <td>
-                                    {{ $materi1->title }}
+                                    {{ $item->materi->title }}
                                 </td>
                                 <td>
-                                    {{ $materi1->description }}
+                                    {{ $item->soal }}
                                 </td>
                                 <td>
                                     <div class="dropdown">
@@ -45,9 +40,9 @@
                                             data-bs-toggle="dropdown"><i class="ti ti-dots-vertical"></i></button>
                                         <div class="dropdown-menu">
                                             <a class="dropdown-item"
-                                                href="{{ route('materiReading.edit', $materi1->uuid) }}"><i
+                                                href="{{ route('contohsoal-reading.edit', $item->id) }}"><i
                                                     class="ti ti-pencil me-1"></i> Edit</a>
-                                            <form action="{{ route('materiReading.destroy', $materi1->uuid) }}"
+                                            <form action="{{ route('contohsoal-reading.destroy', $item->id) }}"
                                                 method="POST">
                                                 @csrf
                                                 @method('DELETE')
@@ -55,10 +50,11 @@
                                                         class="ti ti-trash me-1"></i> Delete</button>
                                             </form>
                                             <a class="dropdown-item"
-                                                href="{{ route('contohsoal-reading.create', ['materi' => $materi1->id]) }}"><i
-                                                    class="ti ti-clipboard-text me-1"></i> Create Contoh Soal</a>
-                                            <a class="dropdown-item" href="{{ route('contohsoal-reading.index') }}"><i
-                                                    class="ti ti-clipboard-text me-1"></i> Contoh Soal</a>
+                                                href="{{ route('contohsoal-reading.show', $item->id) }}"><i
+                                                    class="ti ti-details me-1"></i> Details</a>
+                                            <a class="dropdown-item"
+                                                href="{{ route('contohjawaban.create', $item->id) }}"><i
+                                                    class="ti ti-abc me-1"></i> Create Jawaban</a>
                                         </div>
                                     </div>
                                 </td>
@@ -69,5 +65,6 @@
             </div>
         </div>
         <!--/ Hoverable Table rows -->
+
     </div>
 @endsection
