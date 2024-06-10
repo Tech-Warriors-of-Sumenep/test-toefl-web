@@ -11,12 +11,13 @@ use Illuminate\Http\Response;
 class materiReadingController extends Controller
 {
     public function index(): JsonResponse {
-        $materi = Materi::where('category_id', 2)->get()->toArray();
+        $materi = Materi::with(['category','contohSoal', 'contohSoal.contohJawaban'])->where('category_id', 2)->get()->toArray();
         return response()->json([
             'msg' => 'Get Data Has Been Successfully',
             'payload' => $materi
         ]);
     }
+    
     public function show($filename)
     {
         $filePath = 'files/reading/' . $filename;
